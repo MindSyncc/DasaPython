@@ -4,5 +4,11 @@
         "cargo": "Administrador",
         "senha": "senha123",
         "data_admissao": "2020-01-15"
+    },
+    "6278": {
+        "nome": "Jorgeclaudo",
+        "senha": "senhaldo",
+        "cargo": "funcionario",
+        "data_admissao": "09/06/2025"
     }
 }
