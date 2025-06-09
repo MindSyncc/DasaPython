@@ -118,41 +118,30 @@ def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     print(f"Produto {produto} registrado com sucesso! ID: {id}")
 
 
-def atualizar_estoque_insumos(nome_categoria: str, nome_produto: str, quantidade: int, acao: str):
-    ''' Atualiza o estoque de insumos agrupado por categorias e produtos. '''
-    dados = carregar_dados('estoque.json')
-    estoque = dados.get("insumos", {})
-
-    if nome_categoria not in estoque:
-        print(f"Categoria '{nome_categoria}' não encontrada.")
-        return
-
-    categoria = estoque[nome_categoria]
-    if nome_produto not in categoria:
-        if acao == "adicionar":
-            categoria[nome_produto] = [quantidade]
-            print(f"Produto '{nome_produto}' criado na categoria '{nome_categoria}' com {quantidade} unidades.")
+def atualizar_insumo(caminho_json, categoria, item, quantidade, acao="add"):
+    ''' Atualiza a quantidade de um insumo no JSON de estoque. '''
+    estoque = carregar_dados(caminho_json)
+    
+    if categoria in estoque["insumos"]:
+        if item in estoque["insumos"][categoria]:
+            if acao == "add":
+                estoque["insumos"][categoria][item] += quantidade
+                print(f"{quantidade} unidades adicionadas a '{item}' em '{categoria}'.")
+            elif acao == "remove":
+                if estoque["insumos"][categoria][item] >= quantidade:
+                    estoque["insumos"][categoria][item] -= quantidade
+                    print(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
+                else:
+                    print(f"Erro: Não há {quantidade} unidades suficientes de '{item}' para remover.")
+            else:
+                print("Erro: Ação inválida. Use 'add' ou 'remove'.")
         else:
-            print(f"Produto '{nome_produto}' não encontrado na categoria '{nome_categoria}'.")
-            return
+            print(f"Erro: Item '{item}' não encontrado na categoria '{categoria}'.")
     else:
-        if acao == "adicionar":
-            categoria[nome_produto][-1] += quantidade
-            print(f"Adicionado {quantidade} unidades ao produto '{nome_produto}' na categoria '{nome_categoria}'.")
-        elif acao == "remover":
-            if categoria[nome_produto][-1] < quantidade:
-                print(f"Estoque insuficiente para remover {quantidade} unidades de '{nome_produto}'.")
-                return
-            categoria[nome_produto][-1] -= quantidade
-            print(f"Removido {quantidade} unidades do produto '{nome_produto}' na categoria '{nome_categoria}'.")
-        else:
-            print("Ação inválida. Use 'adicionar' ou 'remover'.")
-            return
-
-    dados["insumos"][nome_categoria] = categoria
-    salvar_dados('estoque.json', dados)
-
-    registro_estoque(nome_produto, quantidade, acao)
+        print(f"Erro: Categoria '{categoria}' não encontrada.")
+    
+    # Salvar as alterações
+    salvar_dados(caminho_json, estoque)
 
 
 def menu_geral():
