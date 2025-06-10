@@ -1,28 +1,23 @@
 {
-    "insumos": 
-    {
-        "coleta_sangue": 
-        {
-            "agulhas": 100,
+    "insumos": {
+        "coleta_sangue": {
+            "agulhas": 399,
             "gazes": 120,
             "seringas": 130,
             "algodao": 200,
             "tubos_transporte": 200
         },
-        "coleta_urina": 
-        {
+        "coleta_urina": {
             "frascos_estereis": 200,
             "frascos_urinas_24h": 250,
             "copos_coletores": 300
         },
-        "coleta_fezes": 
-        {
+        "coleta_fezes": {
             "frascos_coletores": 200,
             "espatulas_descartaveis": 120,
             "sacos_plasticos": 230
         },
-        "materiais_gerais": 
-        {
+        "materiais_gerais": {
             "mascaras_cirurgicas": 130,
             "prope": 150,
             "toucas_descartaveis": 300,

@@ -22,5 +22,65 @@
         "quantidade": 100,
         "data_registro": "09/06/2025 22:26:44",
         "tipo_registro": "adicionar"
+    },
+    "2580": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:03:39",
+        "tipo_registro": "adicionar"
+    },
+    "7327": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:03:39",
+        "tipo_registro": "adicionar"
+    },
+    "6682": {
+        "insumo": "papel_toalha",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:04:02",
+        "tipo_registro": "adicionar"
+    },
+    "8916": {
+        "insumo": "papel_toalha",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:04:03",
+        "tipo_registro": "adicionar"
+    },
+    "7400": {
+        "insumo": "agulhas",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:12:25",
+        "tipo_registro": "adicionar"
+    },
+    "1415": {
+        "insumo": "agulhas",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 12:14:28",
+        "tipo_registro": "adicionar"
+    },
+    "6900": {
+        "insumo": "frascos_estereis",
+        "quantidade": 300,
+        "data_registro": "10/06/2025 12:14:47",
+        "tipo_registro": "adicionar"
+    },
+    "6626": {
+        "insumo": "agulhas",
+        "quantidade": 200,
+        "data_registro": "10/06/2025 16:15:17",
+        "tipo_registro": "adicionar"
+    },
+    "8931": {
+        "insumo": "prope",
+        "quantidade": 200,
+        "data_registro": "10/06/2025 16:22:20",
+        "tipo_registro": "adicionar"
+    },
+    "9522": {
+        "insumo": "aspojap",
+        "quantidade": 100,
+        "data_registro": "10/06/2025 16:23:03",
+        "tipo_registro": "adicionar"
     }
 }
