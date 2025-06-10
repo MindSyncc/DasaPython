@@ -1,6 +1,7 @@
 import random
 import os
 import json
+import time
 from datetime import datetime
 
 '''
@@ -97,7 +98,9 @@ def realizar_login() -> dict:
     for funcionario in funcionarios.values():
         if funcionario['nome'] == nome and funcionario['senha'] == senha:
             print(f"Login realizado com sucesso! Bem-vindo, {nome}.")
+            time.sleep(3)  # Simula um atraso para melhorar a experiência do usuário
             return funcionario
+            
 
     print("Nome ou senha incorretos.")
     return None
@@ -118,16 +121,16 @@ def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     print(f"Produto {produto} registrado com sucesso! ID: {id}")
 
 
-def atualizar_insumo(caminho_json, categoria, item, quantidade, acao="add"):
+def atualizar_estoque(categoria, item, quantidade, acao):
     ''' Atualiza a quantidade de um insumo no JSON de estoque. '''
-    estoque = carregar_dados(caminho_json)
+    estoque = carregar_dados("estoque.json")
     
     if categoria in estoque["insumos"]:
         if item in estoque["insumos"][categoria]:
-            if acao == "add":
+            if acao == "adicionar":
                 estoque["insumos"][categoria][item] += quantidade
                 print(f"{quantidade} unidades adicionadas a '{item}' em '{categoria}'.")
-            elif acao == "remove":
+            elif acao == "remover":
                 if estoque["insumos"][categoria][item] >= quantidade:
                     estoque["insumos"][categoria][item] -= quantidade
                     print(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
@@ -141,12 +144,28 @@ def atualizar_insumo(caminho_json, categoria, item, quantidade, acao="add"):
         print(f"Erro: Categoria '{categoria}' não encontrada.")
     
     # Salvar as alterações
-    salvar_dados(caminho_json, estoque)
+    salvar_dados("estoque.json", estoque)
+
+
+def carregar_estoque():
+    ''' Carrega o estoque de um arquivo JSON. '''
+    estoque = carregar_dados('estoque.json')
+    if estoque and "insumos" in estoque:
+        print("Estoque atual:\n")
+    for categoria, itens in estoque["insumos"].items():
+        print(f"[{categoria}]")
+        for nome_item, quantidade in itens.items():
+            print(f" - {nome_item}: {quantidade} unidades")
+            print()
+    else:
+        print("Estoque vazio")
+    input("Pressione Enter para voltar para o menu...")
 
 
 def menu_geral():
     ''' Exibe o menu principal do sistema. '''
     while True:
+        time.sleep(1)
         print("\nMenu Principal:")
         print("1. Acessar como Administrador")
         print("2. Acessar como Funcionário")
@@ -174,14 +193,16 @@ def menu_geral():
         else:
             print("Opção inválida. Tente novamente.")
 
+
 def menu_administrador():
     ''' Menu exclusivo para administradores. '''
     while True:
+        time.sleep(1) # Simula um atraso para melhorar a experiência do usuário
         limpar_tela()
         print("\nMenu Administrador:")
         print("1. Cadastrar Funcionário")
         print("2. Checar estoque")
-        print("3. Notificações do estoque")
+        print("3. Situação do estoque")
         print("4. Sair")
 
         opcao = input("Escolha uma opção: ").strip()
@@ -189,15 +210,9 @@ def menu_administrador():
             case '1':
                 cadastrar_funcionario()
             case '2':
-                estoque = carregar_dados('estoque.json')
-                if estoque:
-                    print("Estoque atual:")
-                    for id, produto in estoque.items():
-                        print(f"ID: {id}, Produto: {produto['nome']}, Quantidade: {produto['quantidade']}")
-                else:
-                    print("Estoque vazio.")
+                carregar_estoque()
             case '3':
-                print("Notificações do estoque ainda não implementadas.")
+                print("\nSituação do estoque:")
             case '4':
                 print("Saindo do menu administrador...")
                 break
@@ -205,6 +220,7 @@ def menu_administrador():
                 print("Opção inválida. Tente novamente.")
 
 def menu_funcionario():
+    time.sleep(1)
     limpar_tela()
     ''' Menu para funcionários. '''
     while True:
@@ -217,19 +233,13 @@ def menu_funcionario():
         opcao = input("Escolha uma opção: ").strip()
         match opcao:
             case '1':
-                estoque = carregar_dados('estoque.json')
-                if estoque:
-                    print("Estoque atual:")
-                    for id, produto in estoque.items():
-                        print(f"ID: {id}, Produto: {produto['nome']}, Quantidade: {produto['quantidade']}")
-                else:
-                    print("Estoque vazio.")
+                carregar_estoque()
             case '2':
                 try:
                     produto = input("Digite o nome do produto: ").strip()
                     quantidade = int(input("Digite a quantidade a ser adicionada: ").strip())
                     registro_estoque(produto, quantidade, 'adicionar')
-                    atualizar_estoque_insumos("Insumos", produto, quantidade, "adicionar")
+                    atualizar_estoque("Insumos", produto, quantidade, "adicionar")
                 except ValueError:
                     print("Quantidade inválida. Deve ser um número inteiro.")
                 
@@ -243,7 +253,7 @@ def menu_funcionario():
                     produto = input("Digite o nome do produto: ").strip()
                     quantidade = int(input("Digite a quantidade a ser retirada: ").strip())
                     registro_estoque(produto, quantidade, 'remover')
-                    atualizar_estoque_insumos("Insumos", produto, quantidade, "remover")
+                    atualizar_estoque("Insumos", produto, quantidade, "remover")
                 except ValueError:
                     produto = input("Digite o nome do produto: ").strip()
                     quantidade = int(input("Digite a quantidade a ser retirada: ").strip())

@@ -1,9 +1,26 @@
-{  
+{
     "788": {
         "insumo": "pote",
         "quantidade": 100,
         "data_registro": "2023-10-01",
         "tipo_registro": "entrada"
+    },
+    "9385": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 200,
+        "data_registro": "09/06/2025 21:21:55",
+        "tipo_registro": "adicionar"
+    },
+    "5969": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 200,
+        "data_registro": "09/06/2025 22:24:15",
+        "tipo_registro": "adicionar"
+    },
+    "4243": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 100,
+        "data_registro": "09/06/2025 22:26:44",
+        "tipo_registro": "adicionar"
     }
-    
 }

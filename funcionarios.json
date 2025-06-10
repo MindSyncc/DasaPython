@@ -10,5 +10,11 @@
         "senha": "senhaldo",
         "cargo": "funcionario",
         "data_admissao": "09/06/2025"
+    },
+    "1689": {
+        "nome": "0",
+        "senha": "0",
+        "cargo": "funcionario",
+        "data_admissao": "09/06/2025"
     }
 }

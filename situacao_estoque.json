@@ -1,0 +1,35 @@
+{
+    "insumos": 
+    {
+        "coleta_sangue": 
+        {
+            "agulhas": "",
+            "gazes": "",
+            "seringas": "",
+            "algodao": "",
+            "tubos_transporte": ""
+        },
+        "coleta_urina": 
+        {
+            "frascos_estereis": "",
+            "frascos_urinas_24h": "",
+            "copos_coletores": ""
+        },
+        "coleta_fezes": 
+        {
+            "frascos_coletores": "",
+            "espatulas_descartaveis": "",
+            "sacos_plasticos": ""
+        },
+        "materiais_gerais": 
+        {
+            "mascaras_cirurgicas": "",
+            "prope": "",
+            "toucas_descartaveis": "",
+            "sabonete_liquido": "",
+            "papel_toalha": "",
+            "etiquetas_identificadoras": "",
+            "luvas_descartaveis": ""
+        }
+    }
+}
