@@ -1,35 +1,28 @@
 {
-    "insumos": 
-    {
-        "coleta_sangue": 
-        {
-            "agulhas": "",
-            "gazes": "",
-            "seringas": "",
-            "algodao": "",
-            "tubos_transporte": ""
-        },
-        "coleta_urina": 
-        {
-            "frascos_estereis": "",
-            "frascos_urinas_24h": "",
-            "copos_coletores": ""
-        },
-        "coleta_fezes": 
-        {
-            "frascos_coletores": "",
-            "espatulas_descartaveis": "",
-            "sacos_plasticos": ""
-        },
-        "materiais_gerais": 
-        {
-            "mascaras_cirurgicas": "",
-            "prope": "",
-            "toucas_descartaveis": "",
-            "sabonete_liquido": "",
-            "papel_toalha": "",
-            "etiquetas_identificadoras": "",
-            "luvas_descartaveis": ""
-        }
+    "coleta_sangue": {
+        "agulhas": "ALTO",
+        "gazes": "NORMAL",
+        "seringas": "NORMAL",
+        "algodao": "NORMAL",
+        "tubos_transporte": "NORMAL"
+    },
+    "coleta_urina": {
+        "frascos_estereis": "NORMAL",
+        "frascos_urinas_24h": "NORMAL",
+        "copos_coletores": "NORMAL"
+    },
+    "coleta_fezes": {
+        "frascos_coletores": "NORMAL",
+        "espatulas_descartaveis": "NORMAL",
+        "sacos_plasticos": "NORMAL"
+    },
+    "materiais_gerais": {
+        "mascaras_cirurgicas": "NORMAL",
+        "prope": "NORMAL",
+        "toucas_descartaveis": "NORMAL",
+        "sabonete_liquido": "NORMAL",
+        "papel_toalha": "BAIXO",
+        "etiquetas_identificadoras": "NORMAL",
+        "luvas_descartaveis": "NORMAL"
     }
 }

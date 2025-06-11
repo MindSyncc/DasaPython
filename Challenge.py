@@ -2,9 +2,11 @@ import random
 import os
 import json
 import time
+import re
 from datetime import datetime
 
 usuario_logado = None
+
 
 def carregar_dados(arquivo: str) -> dict:
     '''Carrega os dados de um arquivo JSON e retorna um dicionário.'''
@@ -20,6 +22,7 @@ def carregar_dados(arquivo: str) -> dict:
                 return {}
     return {}
 
+
 def salvar_dados(arquivo: str, dados: dict) -> None:
     '''Salva os dados em um arquivo JSON.'''
     try:
@@ -28,9 +31,11 @@ def salvar_dados(arquivo: str, dados: dict) -> None:
     except Exception as e:
         print(f"Erro ao salvar dados: {e}")
 
+
 def limpar_tela() -> None:
     '''Limpa a tela do terminal.'''
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def gerar_id(dados: dict) -> str:
     '''Gera um ID único para novos registros.'''
@@ -39,16 +44,38 @@ def gerar_id(dados: dict) -> str:
         if id not in dados:
             return id
 
+
+def busca_binaria(lista, alvo):
+    '''Realiza uma busca binária em uma lista ordenada. 
+    Retorna o índice do alvo ou -1 se não encontrado.'''
+    esquerda, direita = 0, len(lista) - 1
+    while esquerda <= direita:
+        meio = (esquerda + direita) // 2
+        if lista[meio] == alvo:
+            return meio
+        elif lista[meio] < alvo:
+            esquerda = meio + 1
+        else:
+            direita = meio - 1
+    return -1
+
+
 def cadastrar_funcionario() -> None:
     '''Cadastra um novo funcionário no sistema.'''
     funcionarios = carregar_dados('funcionarios.json')
     try:
         nome = input("Digite o nome do funcionário: ").strip()
+        if not re.fullmatch(r"[A-Za-zÀ-ÿ\s]+", nome):
+            print("Erro: O nome deve conter apenas letras e espaços.")
+            input("Pressione Enter para continuar...")
         senha = input("Digite a senha do funcionário: ").strip()
+        if not re.fullmatch(r"[A-Za-z0-9@#$%^&+=]{6,}", senha):
+            print("Erro: A senha deve ter pelo menos 6 caracteres e pode conter letras, números e símbolos (@#$%^&+=).")
+            input("Pressione Enter para continuar...")
+            return
     except Exception as e:
         print(f"Erro na entrada de dados: {e}")
         return
-
     cargo = "funcionario"
     id = gerar_id(funcionarios)
     data_admissao = datetime.now().strftime("%d/%m/%Y")
@@ -68,6 +95,7 @@ def cadastrar_funcionario() -> None:
     salvar_dados('funcionarios.json', funcionarios)
     print(f"Funcionário {nome} cadastrado com sucesso! ID: {id}")
     input("Pressione Enter para continuar...")
+
 
 def realizar_login() -> dict:
     '''Realiza o login de um funcionário no sistema.'''
@@ -93,6 +121,7 @@ def realizar_login() -> dict:
     print("Nome ou senha incorretos.")
     input("Pressione Enter para continuar...")
     return None
+
 
 def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     '''Registra a adição ou remoção de produtos no estoque.'''
@@ -135,6 +164,37 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> 
     salvar_dados("estoque.json", estoque)
     input("Pressione Enter para continuar...")
 
+
+def buscar_produto_estoque():
+    '''Busca um produto no estoque usando busca binária.
+    Complexidade: O(n log n)'''
+    estoque = carregar_dados('estoque.json')
+    todos_produtos = []
+
+    for categoria, itens in estoque.get("insumos", {}).items():  # O(n)
+        for item in itens:
+            todos_produtos.append((item.lower(), categoria))
+
+    if not todos_produtos:
+        print("Estoque vazio.")
+        input("Pressione Enter para continuar...")
+        return
+
+    todos_produtos.sort(key=lambda x: x[0])  # O(n log n)
+    nome = input("Digite o nome do produto que deseja buscar: ").strip().lower()
+
+    nomes_ordenados = [item[0] for item in todos_produtos]  # O(n)
+    pos = busca_binaria(nomes_ordenados, nome)  # O(log n)
+
+    if pos != -1:
+        nome, categoria = todos_produtos[pos]
+        quantidade = estoque["insumos"][categoria][nome]
+        print(f"Produto encontrado! Categoria: {categoria}, Quantidade: {quantidade}")
+    else:
+        print("Produto não encontrado.")
+    input("Pressione Enter para continuar...")
+
+
 def situacao_estoque() -> None:
     '''Exibe a situação do estoque, alertando sobre itens com baixo ou alto estoque.'''
     estoque = carregar_dados('estoque.json')
@@ -147,6 +207,7 @@ def situacao_estoque() -> None:
                 print(f" - {item}: {quantidade} unidades (ALERTA: Estoque alto!)")
             else:
                 print(f" - {item}: {quantidade} unidades (Estoque normal)")
+
 
 def atualizar_situacao_estoque() -> None:
     estoque = carregar_dados('estoque.json')
@@ -164,6 +225,7 @@ def atualizar_situacao_estoque() -> None:
 
     salvar_dados('situacao_estoque.json', situacao_estoque)
 
+
 def notificacao_estoque() -> None:
     '''Notifica sobre itens com baixo estoque.'''
     estoque = carregar_dados('estoque.json')
@@ -171,6 +233,7 @@ def notificacao_estoque() -> None:
         for item, quantidade in estoque["insumos"][categoria].items():
             if quantidade <= 100:
                 print(f"ALERTA: O item '{item}' na categoria '{categoria}' está com baixo estoque ({quantidade} unidades).")
+
 
 def carregar_estoque() -> None:
     '''Carrega e exibe o estoque atual.'''
@@ -185,6 +248,7 @@ def carregar_estoque() -> None:
     else:
         print("Estoque vazio")
     input("Pressione Enter para voltar para o menu...")
+
 
 def menu_geral() -> None:
     '''Menu principal do sistema de estoque. Permite acesso como administrador ou funcionário.'''
@@ -222,6 +286,7 @@ def menu_geral() -> None:
             print("Opção inválida.")
             input("Pressione Enter para continuar...")
 
+
 def menu_administrador() -> None:
     '''Menu do administrador, permitindo gerenciar funcionários e estoque.'''
     while True:
@@ -233,32 +298,37 @@ def menu_administrador() -> None:
         print("=" * 40)
         print("1. Cadastrar Funcionário")
         print("2. Checar Estoque")
-        print("3. Situação do Estoque")
-        print("4. Sair")
+        print("3. Buscar Produto no Estoque")
+        print("4. Situação do Estoque")
+        print("5. Sair")
         print("=" * 40)
 
         opcao = input("Escolha uma opção: ").strip()
-        if opcao == '1':
-            cadastrar_funcionario()
-        elif opcao == '2':
-            carregar_estoque()
-        elif opcao == '3':
-            situacao_estoque()
-            input("Pressione Enter para continuar...")
-        elif opcao == '4':
-            print("Saindo do menu administrador...")
-            time.sleep(1)
-            break
-        else:
-            print("Opção inválida.")
-            input("Pressione Enter para continuar...")
+        match opcao:
+            case '1':
+                cadastrar_funcionario()
+            case '2':
+                carregar_estoque()
+            case '3':
+                buscar_produto_estoque()
+            case '4':
+                situacao_estoque()
+                input("Pressione Enter para continuar...")
+            case '5':  
+                print("Saindo do menu administrador...")
+                time.sleep(1)
+                break
+            case _:
+                print("Opção inválida.")
+                input("Pressione Enter para continuar...")
+            
+
 
 def menu_funcionario() -> None:
     '''Menu do funcionário, permitindo checar e atualizar o estoque.'''
     while True:
         limpar_tela()
         atualizar_situacao_estoque()
-        notificacao_estoque()
         print("=" * 40)
         print("         MENU DO FUNCIONÁRIO")
         print("=" * 40)
@@ -304,6 +374,7 @@ def menu_funcionario() -> None:
         else:
             print("Opção inválida.")
             input("Pressione Enter para continuar...")
+
 
 if __name__ == "__main__":
     menu_geral()

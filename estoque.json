@@ -1,7 +1,7 @@
 {
     "insumos": {
         "coleta_sangue": {
-            "agulhas": 399,
+            "agulhas": 899,
             "gazes": 120,
             "seringas": 130,
             "algodao": 200,
@@ -22,7 +22,7 @@
             "prope": 150,
             "toucas_descartaveis": 300,
             "sabonete_liquido": 400,
-            "papel_toalha": 600,
+            "papel_toalha": 100,
             "etiquetas_identificadoras": 230,
             "luvas_descartaveis": 180
         }

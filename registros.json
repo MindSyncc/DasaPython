@@ -77,10 +77,16 @@
         "data_registro": "10/06/2025 16:22:20",
         "tipo_registro": "adicionar"
     },
-    "9522": {
-        "insumo": "aspojap",
-        "quantidade": 100,
-        "data_registro": "10/06/2025 16:23:03",
+    "5422": {
+        "insumo": "agulhas",
+        "quantidade": 500,
+        "data_registro": "10/06/2025 17:32:44",
         "tipo_registro": "adicionar"
+    },
+    "9360": {
+        "insumo": "papel_toalha",
+        "quantidade": 500,
+        "data_registro": "10/06/2025 17:33:39",
+        "tipo_registro": "remover"
     }
 }
