@@ -88,5 +88,11 @@
         "quantidade": 500,
         "data_registro": "10/06/2025 17:33:39",
         "tipo_registro": "remover"
+    },
+    "8176": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 100,
+        "data_registro": "15/06/2025 13:18:10",
+        "tipo_registro": "adicionar"
     }
 }

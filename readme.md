@@ -3,7 +3,7 @@ Sistema de Controle de Estoque - DASA (Simulação)
 INTEGRANTES:
 Fernando Carlos Colque Huaranca - rm558095
 
-Heloísa Fleury Jardim - rm556378
+Heloísa Fleury Jardim - rm556378 - 2ESPV
 
 Juan Fuentes Rufino - rm557673
 
@@ -86,7 +86,7 @@ Análises de Complexidade (O-grande) documentadas nas funções principais
 
 (Opcional) Recursividade com memorização pode ser adicionada para fins didáticos
 
- Armazenamento
+Armazenamento
 Todos os dados são salvos em arquivos JSON
 
 A leitura/escrita é feita de forma segura e com tratamento de erros
@@ -122,3 +122,10 @@ Produto é registrado e estoque atualizado
 
 Se quantidade cair abaixo de 100, um alerta será exibido ao administrador
 
+Login do administrador:
+usuario: teste
+senha: teste
+
+Login do Usuario:
+usuario: teste1
+usuario: teste1

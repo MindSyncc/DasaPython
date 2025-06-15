@@ -1,8 +1,8 @@
 {
     "1": {
-        "nome": "João Silva",
+        "nome": "teste",
         "cargo": "Administrador",
-        "senha": "senha123",
+        "senha": "teste",
         "data_admissao": "2020-01-15"
     },
     "6278": {
@@ -12,8 +12,8 @@
         "data_admissao": "09/06/2025"
     },
     "1689": {
-        "nome": "0",
-        "senha": "0",
+        "nome": "teste1",
+        "senha": "teste1",
         "cargo": "funcionario",
         "data_admissao": "09/06/2025"
     }
