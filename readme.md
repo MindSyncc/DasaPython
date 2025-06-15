@@ -23,6 +23,15 @@ Administrador: pode cadastrar funcionários e consultar a situação do estoque.
 
 Funcionário: pode registrar movimentações (entrada/saída) e consultar produtos.
 
+#Logins testes
+Login do administrador:
+usuario: teste
+senha: teste
+
+Login do Usuario:
+usuario: teste1
+usuario: teste1
+
 As informações são armazenadas em arquivos JSON, simulando um banco de dados simples, e os dados do estoque são atualizados em tempo real após cada ação.
 
  Funcionalidades
