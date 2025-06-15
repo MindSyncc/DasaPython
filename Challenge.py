@@ -139,6 +139,60 @@ def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     print(f"Produto {produto} registrado com sucesso! ID: {id}")
 
 
+def escolher_produto() -> tuple[str, str]:
+    '''Permite ao usuário escolher um produto e retorna (categoria, item) com nomes compatíveis com o JSON.'''    
+    categorias = {
+        1: ("coleta_sangue", {
+            1: ("Agulhas", "agulhas"),
+            2: ("Gazes", "gazes"),
+            3: ("Seringas", "seringas"),
+            4: ("Algodão", "algodao"),
+            5: ("Tubos de Transporte", "tubos_transporte")
+        }),
+        2: ("coleta_urina", {
+            1: ("Frascos Estéreis", "frascos_estereis"),
+            2: ("Frascos de Urina 24h", "frascos_urinas_24h"),
+            3: ("Copos Coletores", "copos_coletores")
+        }),
+        3: ("coleta_fezes", {
+            1: ("Máscaras Cirúrgicas", "mascaras_cirurgicas"),
+            2: ("Propé", "prope"),
+            3: ("Toucas Descartáveis", "toucas_descartaveis"),
+            4: ("Sabonete Líquido", "sabonete_liquido"),
+            5: ("Papel Toalha", "papel_toalha"),
+            6: ("Etiquetas Identificadoras", "etiquetas_identificadoras"),
+            7: ("Luvas Descartáveis", "luvas_descartaveis")
+        }),
+        4: ("materiais_gerais", {
+            1: ("Álcool 70%", "alcool_70"),
+            2: ("Papel Higiênico", "papel_higienico"),
+            3: ("Sacos de Lixo", "sacos_lixo")
+        })
+    }
+
+    try:
+        print("Escolha a categoria do produto:")
+        for i, (cat_key, _) in categorias.items():
+            nome_formatado = cat_key.replace("_", " ").title()
+            print(f"{i}. {nome_formatado}")
+
+        opcao_categoria = int(input("Digite o número da categoria: ").strip())
+        categoria_key, produtos = categorias[opcao_categoria]
+
+        print("\nEscolha o produto:")
+        for i, (nome_exibicao, _) in produtos.items():
+            print(f"{i}. {nome_exibicao}")
+
+        opcao_produto = int(input("Digite o número do produto: ").strip())
+        nome_exibicao, item_key = produtos[opcao_produto]
+
+        return categoria_key, item_key
+
+    except (KeyError, ValueError):
+        print("Opção inválida. Tente novamente.\n")
+        return escolher_produto()
+
+      
 def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> None:
     '''Atualiza o estoque de um item em uma categoria específica.'''
     estoque = carregar_dados("estoque.json")
@@ -264,27 +318,28 @@ def menu_geral() -> None:
 
         opcao = input("Escolha uma opção: ").strip()
 
-        if opcao == '1':
-            funcionario = realizar_login()
-            if funcionario and funcionario['cargo'].lower() == 'administrador':
-                menu_administrador()
-            else:
-                print("Acesso negado.")
+        match opcao:
+            case '1':
+                funcionario = realizar_login()
+                if funcionario and funcionario['cargo'].lower() == 'administrador':
+                    menu_administrador()
+                else:
+                    print("Acesso negado.")
+                    input("Pressione Enter para continuar...")
+            case '2':
+                funcionario = realizar_login()
+                if funcionario and funcionario['cargo'].lower() == 'funcionario':
+                    menu_funcionario()
+                else:
+                    print("Acesso negado.")
+                    input("Pressione Enter para continuar...")
+            case '3':
+                print("Saindo do sistema...")
+                time.sleep(1)
+                break
+            case _:
+                print("Opção inválida.")
                 input("Pressione Enter para continuar...")
-        elif opcao == '2':
-            funcionario = realizar_login()
-            if funcionario and funcionario['cargo'].lower() == 'funcionario':
-                menu_funcionario()
-            else:
-                print("Acesso negado.")
-                input("Pressione Enter para continuar...")
-        elif opcao == '3':
-            print("Saindo do sistema...")
-            time.sleep(1)
-            break
-        else:
-            print("Opção inválida.")
-            input("Pressione Enter para continuar...")
 
 
 def menu_administrador() -> None:
@@ -304,6 +359,7 @@ def menu_administrador() -> None:
         print("=" * 40)
 
         opcao = input("Escolha uma opção: ").strip()
+
         match opcao:
             case '1':
                 cadastrar_funcionario()
@@ -314,14 +370,13 @@ def menu_administrador() -> None:
             case '4':
                 situacao_estoque()
                 input("Pressione Enter para continuar...")
-            case '5':  
+            case '5':
                 print("Saindo do menu administrador...")
                 time.sleep(1)
                 break
             case _:
                 print("Opção inválida.")
                 input("Pressione Enter para continuar...")
-            
 
 
 def menu_funcionario() -> None:
@@ -339,41 +394,42 @@ def menu_funcionario() -> None:
         print("=" * 40)
 
         opcao = input("Escolha uma opção: ").strip()
-        if opcao == '1':
-            carregar_estoque()
-        elif opcao == '2':
-            try:
-                categoria = input("Digite a categoria do produto: ").strip()
-                produto = input("Digite o nome do produto: ").strip()
-                quantidade = int(input("Digite a quantidade a ser adicionada: ").strip())
-                if quantidade <= 0:
-                    raise ValueError
-                atualizar_estoque(categoria, produto, quantidade, "adicionar")
-                registro_estoque(produto, quantidade, "adicionar")
-                atualizar_situacao_estoque()
-            except ValueError:
-                print("Quantidade inválida. Deve ser um número inteiro positivo.")
+
+        match opcao:
+            case '1':
+                carregar_estoque()
+            case '2':
+                try:
+                    categoria, produto = escolher_produto()
+                    quantidade = int(input("Digite a quantidade a ser adicionada: ").strip())
+                    if quantidade <= 0:
+                        raise ValueError
+                    atualizar_estoque(categoria, produto, quantidade, "adicionar")
+                    registro_estoque(produto, quantidade, "adicionar")
+                    atualizar_situacao_estoque()
+                except ValueError:
+                    print("Quantidade inválida. Deve ser um número inteiro positivo.")
+                    input("Pressione Enter para continuar...")
+            case '3':
+                try:
+                    categoria = input("Digite a categoria do produto: ").strip()
+                    produto = input("Digite o nome do produto: ").strip()
+                    quantidade = int(input("Digite a quantidade a ser retirada: ").strip())
+                    if quantidade <= 0:
+                        raise ValueError
+                    atualizar_estoque(categoria, produto, quantidade, "remover")
+                    registro_estoque(produto, quantidade, "remover")
+                    atualizar_situacao_estoque()
+                except ValueError:
+                    print("Quantidade inválida. Deve ser um número inteiro positivo.")
+                    input("Pressione Enter para continuar...")
+            case '4':
+                print("Saindo do menu funcionário...")
+                time.sleep(1)
+                break
+            case _:
+                print("Opção inválida.")
                 input("Pressione Enter para continuar...")
-        elif opcao == '3':
-            try:
-                categoria = input("Digite a categoria do produto: ").strip()
-                produto = input("Digite o nome do produto: ").strip()
-                quantidade = int(input("Digite a quantidade a ser retirada: ").strip())
-                if quantidade <= 0:
-                    raise ValueError
-                atualizar_estoque(categoria, produto, quantidade, "remover")
-                registro_estoque(produto, quantidade, "remover")
-                atualizar_situacao_estoque()
-            except ValueError:
-                print("Quantidade inválida. Deve ser um número inteiro positivo.")
-                input("Pressione Enter para continuar...")
-        elif opcao == '4':
-            print("Saindo do menu funcionário...")
-            time.sleep(1)
-            break
-        else:
-            print("Opção inválida.")
-            input("Pressione Enter para continuar...")
 
 
 if __name__ == "__main__":
