@@ -1,0 +1,20 @@
+{
+    "1": {
+        "nome": "teste",
+        "cargo": "Administrador",
+        "senha": "teste",
+        "data_admissao": "2020-01-15"
+    },
+    "6278": {
+        "nome": "Jorgeclaudo",
+        "senha": "senhaldo",
+        "cargo": "funcionario",
+        "data_admissao": "09/06/2025"
+    },
+    "1689": {
+        "nome": "teste1",
+        "senha": "teste1",
+        "cargo": "funcionario",
+        "data_admissao": "09/06/2025"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "consumo_diario": [
+        {
+            "data": "2025-09-01",
+            "coleta_sangue": {
+                "agulhas": 10
+            }
+        },
+        {
+            "data": "2025-09-02",
+            "coleta_sangue": {
+                "agulhas": 47
+            }
+        }
+    ]
+}
