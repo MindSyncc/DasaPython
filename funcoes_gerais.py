@@ -1,0 +1,89 @@
+import os
+import json
+import random
+
+
+def carregar_dados(arquivo: str) -> dict:
+    '''Carrega os dados de um arquivo JSON e retorna um dicionário.'''
+    if os.path.exists(arquivo):
+        with open(arquivo, 'r', encoding='utf-8') as file:
+            try:
+                conteudo = file.read().strip()
+                if not conteudo:
+                    return {}
+                return json.loads(conteudo)
+            except json.JSONDecodeError:
+                print("Erro ao decodificar o arquivo JSON. Verifique o formato.")
+                return {}
+    return {}
+
+
+def salvar_dados(arquivo: str, dados: dict) -> None:
+    '''Salva os dados em um arquivo JSON.'''
+    try:
+        with open(arquivo, 'w', encoding='utf-8') as file:
+            json.dump(dados, file, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Erro ao salvar dados: {e}")
+
+
+def limpar_tela() -> None:
+    '''Limpa a tela do terminal.'''
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def gerar_id(dados: dict) -> str:
+    '''Gera um ID único para novos registros.'''
+    while True:
+        id = str(random.randint(1000, 9999))
+        if id not in dados:
+            return id
+
+
+def busca_binaria(lista, alvo):
+    '''Realiza uma busca binária em uma lista ordenada. 
+    Retorna o índice do alvo ou -1 se não encontrado.'''
+    esquerda, direita = 0, len(lista) - 1
+    while esquerda <= direita:
+        meio = (esquerda + direita) // 2
+        if lista[meio] == alvo:
+            return meio
+        elif lista[meio] < alvo:
+            esquerda = meio + 1
+        else:
+            direita = meio - 1
+    return -1
+
+
+def busca_sequencial(lista, alvo):
+    '''Realiza uma busca sequencial em uma lista. 
+    Retorna o índice do alvo ou -1 se não encontrado.'''
+    for i in range(len(lista)):
+        if lista[i] == alvo:
+            return i
+    return -1
+
+
+def merge_sort(lista):
+    '''Ordena uma lista usando o algoritmo merge sort.'''
+    if len(lista) <= 1:
+        return lista
+    meio = len(lista) // 2
+    esquerda = merge_sort(lista[:meio])
+    direita = merge_sort(lista[meio:])
+    resultado = []
+    i = j = 0
+    while i < len(esquerda) and j < len(direita):
+        if esquerda[i] < direita[j]:
+            resultado.append(esquerda[i])
+            i += 1
+        else:
+            resultado.append(direita[j])
+            j += 1
+    while i < len(esquerda):
+        resultado.append(esquerda[i])
+        i += 1
+    while j < len(direita):
+        resultado.append(direita[j])
+        j += 1
+    return resultado
