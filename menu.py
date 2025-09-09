@@ -1,4 +1,7 @@
 from funcoes_estoque import *
+from funcoes_funcionario import *
+import time
+
 def menu_geral() -> None:
     '''Menu principal do sistema de estoque. Permite acesso como administrador ou funcionário.'''
     while True:

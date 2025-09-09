@@ -1,138 +1,6 @@
-from datetime import datetime
-import re
-import time
+from datetime import datetime, date
 from funcoes_gerais import *
-
-def organizar_insumos_por_consumo() -> dict:
-    '''Organiza os insumos do estoque com base no último consumo registrado'''
-    #Carrega os dados
-    estoque = carregar_dados('estoque.json')
-    registros = carregar_dados('registro.json')
-
-    #Encontra o último registro de consumo (remover)
-    consumos = [
-        valor for valor in registros.values()
-        if valor.get("tipo_registro") == "remover"
-    ]
-    
-    if not consumos:
-        return estoque  # nenhum consumo registrado ainda
-
-    #Encontra o consumo mais recente na lista 'consumos'
-    #A função 'max' vai comparar os itens da lista e retornar o maior segundo o critério definido em 'key'
-    ultimo_consumo = max(
-        consumos,  # Lista de dicionários, cada um representando um consumo
-        key=lambda x: datetime.strptime(
-            x["data_registro"],  #Acessa a string da data dentro do dicionário
-            "%d/%m/%Y %H:%M:%S"  #Define o formato da data para conversão
-        )
-    )
-    insumo_consumido = ultimo_consumo["insumo"]
-
-    #Cria a lista [(insumo, quantidade, prioridade)]
-    lista_insumos = []
-    for categoria, itens in estoque["insumos"].items():
-        for nome, qtd in itens.items():
-            prioridade = 0 if nome == insumo_consumido else 1
-            lista_insumos.append((nome, qtd, prioridade))
-
-    #Ordena a lista por quick_sort
-        lista_ordenada = quick_sort(lista_insumos, key=lambda x: (x[2], x[0]))
-    #Reconstrui dicionário ordenado
-    insumos_ordenados = {nome: qtd for nome, qtd, _ in lista_ordenada}
-
-    return insumos_ordenados
-
-
-def cadastrar_funcionario() -> None:
-    '''Cadastra um novo funcionário no sistema.'''
-    funcionarios = carregar_dados('funcionarios.json')
-    try:
-        nome = input("Digite o nome do funcionário: ").strip()
-        if not re.fullmatch(r"[A-Za-zÀ-ÿ\s]+", nome):
-            print("Erro: O nome deve conter apenas letras e espaços.")
-            input("Pressione Enter para continuar...")
-        senha = input("Digite a senha do funcionário: ").strip()
-        if not re.fullmatch(r"[A-Za-z0-9@#$%^&+=]{6,}", senha):
-            print("Erro: A senha deve ter pelo menos 6 caracteres e pode conter letras, números e símbolos (@#$%^&+=).")
-            input("Pressione Enter para continuar...")
-            return
-    except Exception as e:
-        print(f"Erro na entrada de dados: {e}")
-        return
-    cargo = "funcionario"
-    id = gerar_id(funcionarios)
-    data_admissao = datetime.now().strftime("%d/%m/%Y")
-
-    for user in funcionarios.values():
-        if user['nome'] == nome:
-            print("Funcionário já cadastrado.")
-            input("Pressione Enter para continuar...")
-            return
-
-    funcionarios[id] = {
-        'nome': nome,
-        'senha': senha,
-        'cargo': cargo,
-        'data_admissao': data_admissao
-    }
-    salvar_dados('funcionarios.json', funcionarios)
-    print(f"Funcionário {nome} cadastrado com sucesso! ID: {id}")
-    input("Pressione Enter para continuar...")
-
-
-def listar_funcionarios() -> None:
-    '''Lista todos os funcionários cadastrados no sistema.'''
-    funcionarios = carregar_dados('funcionarios.json')
-    if not funcionarios:
-        print("Nenhum funcionário cadastrado.")
-    else:
-        print("Funcionários cadastrados:")
-        for id, info in funcionarios.items():
-            print(f"""ID: {id}
-                  Nome: {info['nome']} 
-                  Cargo: {info['cargo']}
-                  Data de Admissão: {info['data_admissao']}""")
-    input("Pressione Enter para continuar...")
-
-
-def achar_funcionario_por_nome(nome: str) -> dict:
-    '''Busca um funcionário pelo nome usando busca sequencial.'''
-    funcionarios = carregar_dados("funcionarios.json") or {}
-    lista_funcionarios = []
-    for chave, dados in funcionarios.items():
-        dados_com_id = {"id": chave}
-        dados_com_id.update(dados)
-        lista_funcionarios.append(dados_com_id)
-
-    # Buscar pelo nome usando busca sequencial
-    return busca_sequencial(lista_funcionarios, "nome", nome)
-
-
-def realizar_login() -> dict:
-    '''Realiza o login de um funcionário no sistema.'''
-    funcionarios = carregar_dados('funcionarios.json')
-    if not funcionarios:
-        print("Nenhum funcionário cadastrado.")
-        input("Pressione Enter para continuar...")
-        return None
-
-    try:
-        nome = input("Digite seu nome: ").strip()
-        senha = input("Digite sua senha: ").strip()
-    except Exception as e:
-        print(f"Erro na entrada: {e}")
-        return None
-
-    for funcionario in funcionarios.values():
-        if funcionario['nome'] == nome and funcionario['senha'] == senha:
-            print(f"Login realizado com sucesso! Bem-vindo, {nome}.")
-            time.sleep(1)
-            return funcionario
-
-    print("Nome ou senha incorretos.")
-    input("Pressione Enter para continuar...")
-    return None
+from funcoes_consumo import consumo_diario_limpar
 
 
 def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
@@ -205,8 +73,6 @@ def escolher_produto() -> tuple[str, str]:
         return escolher_produto()
 
       
-from datetime import date
-
 def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> None:
     """Atualiza o estoque de um item em uma categoria específica e registra consumo diário."""
     estoque = carregar_dados("estoque.json") or {}
@@ -258,14 +124,6 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> 
     salvar_dados("estoque.json", estoque)
 
     input("Pressione Enter para continuar...")
-
-
-def consumo_diario_limpar(dados_consumo: dict, limite: int = 30) -> None:
-    '''Limitar o uso do arquivo consumo_diario.json para os últimos 30 dias.'''
-    if "consumo_diario" in dados_consumo:
-        fila_consumo = dados_consumo["consumo_diario"]
-        while len(fila_consumo) > limite: #FIFO
-            fila_consumo.pop(0) # Remove o registro mais antigo
 
 
 def buscar_produto_estoque():
@@ -328,11 +186,6 @@ def atualizar_situacao_estoque() -> None:
                 situacao_estoque[categoria][item] = "NORMAL"
 
     salvar_dados('situacao_estoque.json', situacao_estoque)
-
-
-def checar_consumo_diario() -> None:
-    '''Checa o consumo diário de insumos e exibe ele na tela.'''
-    input("Pressione Enter para continuar...")
 
 
 def notificacao_estoque() -> None:
