@@ -1,6 +1,10 @@
 from datetime import datetime
-from funcoes_gerais import carregar_dados
-from funcoes_gerais import merge_sort
+from funcoes_gerais import *
+import time
+from faker import Faker
+
+
+fake = Faker("pt_BR")
 
 def organizar_insumos_por_consumo() -> dict:
     '''Organiza os insumos do estoque com base no último consumo registrado'''
@@ -53,4 +57,24 @@ def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
 
 def checar_consumo_diario() -> None:
     '''Checa o consumo diário de insumos e exibe ele na tela.'''
-    input("Pressione Enter para continuar...")
+    input("Funcionalidade em desenvolvimento...")
+
+
+def registro_aleatorio_estoque() -> dict:
+    '''Gera um registro no estoque, registros e no consumo diário com valores aleatórios.'''
+    time.sleep(5) #A cada 5 segundos, gera um novo registro
+    estoque = carregar_dados('estoque.json')
+    consumo_diario = carregar_dados('consumo_diario.json')
+    registros = carregar_dados('registros.json')
+    id_registro = gerar_id(registros)
+    data_registro = fake.date_time_this_year().strftime("%d/%m/%Y %H:%M:%S")
+    produto = escolher_produto_aleatorio()
+    tipo_registro = random_choice_registro(produto)
+
+    registros[id_registro] = {
+        'insumo': produto,
+        'quantidade': random.randint(100, 500),
+        'data_registro': data_registro,
+        'tipo_registro': tipo_registro
+    }
+    salvar_dados('registros.json', registros)

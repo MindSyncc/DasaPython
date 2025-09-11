@@ -87,3 +87,30 @@ def merge_sort(lista):
         resultado.append(direita[j])
         j += 1
     return resultado
+
+
+def escolher_produto_aleatorio()-> tuple:
+    '''Escolhe um produto aleatório do estoque.'''
+    estoque = carregar_dados('estoque.json')
+    categorias = list(estoque.get("insumos", {}).keys())
+    if not categorias:
+        print("Estoque vazio.")
+        return None
+    categoria = random.choice(categorias)
+    produtos = list(estoque["insumos"][categoria].keys())
+    if not produtos:
+        print(f"Nenhum produto na categoria {categoria}.")
+        return None
+    produto = random.choice(produtos)
+    return produto
+
+
+def random_choice_registro(produto: str) -> str:
+    '''Escolhe aleatoriamente entre "adicionar" e "remover" para o registro de estoque.'''
+    estoque = carregar_dados('estoque.json')
+    for categoria, itens in estoque.get("insumos", {}).items():
+        if produto in itens:
+            if itens[produto] < 500:
+                return "adicionar"
+            else:
+                return random.choice(["adicionar", "remover"])

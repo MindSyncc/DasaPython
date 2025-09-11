@@ -1,6 +1,8 @@
 from funcoes_estoque import *
 from funcoes_funcionario import *
+from funcoes_consumo import *
 import time
+import threading
 
 def menu_geral() -> None:
     '''Menu principal do sistema de estoque. Permite acesso como administrador ou funcionário.'''

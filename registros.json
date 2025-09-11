@@ -148,5 +148,95 @@
         "quantidade": 40,
         "data_registro": "02/09/2025 23:06:08",
         "tipo_registro": "remover"
+    },
+    "3555": {
+        "insumo": "tubos_transporte",
+        "quantidade": 347,
+        "data_registro": "11/09/2025 01:51:21",
+        "tipo_registro": "adicionar"
+    },
+    "2952": {
+        "insumo": "etiquetas_identificadoras",
+        "quantidade": 273,
+        "data_registro": "13/08/2025 02:46:37",
+        "tipo_registro": "adicionar"
+    },
+    "1850": {
+        "insumo": "frascos_estereis",
+        "quantidade": 227,
+        "data_registro": "15/02/2025 19:40:23",
+        "tipo_registro": "adicionar"
+    },
+    "6152": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 458,
+        "data_registro": "05/06/2025 18:28:17",
+        "tipo_registro": "adicionar"
+    },
+    "3993": {
+        "insumo": "frascos_coletores",
+        "quantidade": 499,
+        "data_registro": "16/01/2025 14:45:47",
+        "tipo_registro": "adicionar"
+    },
+    "3781": {
+        "insumo": "tubos_transporte",
+        "quantidade": 262,
+        "data_registro": "09/07/2025 02:52:40",
+        "tipo_registro": "adicionar"
+    },
+    "2942": {
+        "insumo": "frascos_coletores",
+        "quantidade": 420,
+        "data_registro": "26/05/2025 09:49:47",
+        "tipo_registro": "adicionar"
+    },
+    "8072": {
+        "insumo": "algodao",
+        "quantidade": 375,
+        "data_registro": "23/08/2025 11:43:13",
+        "tipo_registro": "adicionar"
+    },
+    "4767": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 269,
+        "data_registro": "09/05/2025 09:40:13",
+        "tipo_registro": "adicionar"
+    },
+    "8322": {
+        "insumo": "tubos_transporte",
+        "quantidade": 342,
+        "data_registro": "04/04/2025 17:10:54",
+        "tipo_registro": "adicionar"
+    },
+    "8886": {
+        "insumo": "toucas_descartaveis",
+        "quantidade": 344,
+        "data_registro": "28/02/2025 02:53:47",
+        "tipo_registro": "adicionar"
+    },
+    "4488": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 471,
+        "data_registro": "18/04/2025 17:15:17",
+        "tipo_registro": "adicionar"
+    },
+    "7703": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 438,
+        "data_registro": "04/04/2025 17:48:50",
+        "tipo_registro": "adicionar"
+    },
+    "6223": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 236,
+        "data_registro": "08/07/2025 05:07:48",
+        "tipo_registro": "adicionar"
+    },
+    "2790": {
+        "insumo": "frascos_coletores",
+        "quantidade": 494,
+        "data_registro": "24/03/2025 12:43:48",
+        "tipo_registro": "adicionar"
     }
 }
