@@ -119,7 +119,7 @@ def menu_funcionario() -> None:
                     quantidade = int(input("Digite a quantidade a ser adicionada: ").strip())
                     if quantidade <= 0:
                         raise ValueError
-                    atualizar_estoque(categoria, produto, quantidade, "adicionar")
+                    atualizar_estoque(categoria, produto, quantidade, "adicionar", datetime.now())
                     registro_estoque(produto, quantidade, "adicionar")
                     atualizar_situacao_estoque()
                 except ValueError:
@@ -131,7 +131,7 @@ def menu_funcionario() -> None:
                     quantidade = int(input("Digite a quantidade a ser retirada: ").strip())
                     if quantidade <= 0:
                         raise ValueError
-                    atualizar_estoque(categoria, produto, quantidade, "remover")
+                    atualizar_estoque(categoria, produto, quantidade, "remover", datetime.now())
                     registro_estoque(produto, quantidade, "remover")
                     atualizar_situacao_estoque()
                 except ValueError:

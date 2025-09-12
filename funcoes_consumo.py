@@ -1,5 +1,7 @@
 from datetime import datetime
 from funcoes_gerais import *
+from funcoes_estoque import atualizar_estoque
+import random
 from faker import Faker
 
 
@@ -66,16 +68,16 @@ def registro_aleatorio_estoque() -> dict:
     registros = carregar_dados('registros.json')
     id_registro = gerar_id(registros)
     data_registro = fake.date_time_this_year().strftime("%d/%m/%Y %H:%M:%S")
-    produto = escolher_produto_aleatorio()
+    categoria, produto = escolher_produto_aleatorio()
     tipo_registro = random_choice_registro(produto)
-
+    qtd = random.randint(100, 500)
     registros[id_registro] = {
         'insumo': produto,
-        'quantidade': random.randint(100, 500),
+        'quantidade': qtd,
         'data_registro': data_registro,
         'tipo_registro': tipo_registro
     }
-    
+    #atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro)
     salvar_dados('registros.json', registros)
 
 

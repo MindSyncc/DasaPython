@@ -96,14 +96,14 @@ def escolher_produto_aleatorio()-> tuple:
     categorias = list(estoque.get("insumos", {}).keys())
     if not categorias:
         print("Estoque vazio.")
-        return None
+        return None, None
     categoria = random.choice(categorias)
     produtos = list(estoque["insumos"][categoria].keys())
     if not produtos:
         print(f"Nenhum produto na categoria {categoria}.")
-        return None
+        return None, None
     produto = random.choice(produtos)
-    return produto
+    return categoria, produto
 
 
 def random_choice_registro(produto: str) -> str:

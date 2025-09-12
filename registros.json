@@ -196,5 +196,29 @@
         "quantidade": 225,
         "data_registro": "16/06/2025 17:15:18",
         "tipo_registro": "adicionar"
+    },
+    "6516": {
+        "insumo": "gazes",
+        "quantidade": 106,
+        "data_registro": "16/06/2025 11:42:32",
+        "tipo_registro": "remover"
+    },
+    "9929": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 223,
+        "data_registro": "14/07/2025 04:59:34",
+        "tipo_registro": "adicionar"
+    },
+    "7132": {
+        "insumo": "frascos_estereis",
+        "quantidade": 143,
+        "data_registro": "17/03/2025 07:15:31",
+        "tipo_registro": "adicionar"
+    },
+    "2839": {
+        "insumo": "gazes",
+        "quantidade": 139,
+        "data_registro": "12/06/2025 04:43:26",
+        "tipo_registro": "remover"
     }
 }

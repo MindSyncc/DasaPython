@@ -73,12 +73,11 @@ def escolher_produto() -> tuple[str, str]:
         return escolher_produto()
 
       
-def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> None:
+def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str, data: None) -> None:
     """Atualiza o estoque de um item em uma categoria específica e registra consumo diário."""
     estoque = carregar_dados("estoque.json") or {}
     dados_consumo_diario = carregar_dados("consumo_diario.json") or {}
     fila_consumo = dados_consumo_diario["consumo_diario"]
-    data_str = date.today().isoformat() #Dia do consumo
 
     if categoria in estoque.get("insumos", {}):
         if item in estoque["insumos"][categoria]:
@@ -92,7 +91,7 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> 
                     print(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
 
                     # Registro de consumo diário
-                    if fila_consumo and fila_consumo[-1]["data"] == data_str:
+                    if fila_consumo and fila_consumo[-1]["data"] == data:
                         if categoria in fila_consumo[-1]:
                             if item in fila_consumo[-1][categoria]:
                                 fila_consumo[-1][categoria][item] += quantidade
@@ -102,12 +101,12 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str) -> 
                             fila_consumo[-1][categoria] = {item: quantidade}
                     else:
                         fila_consumo.append({
-                            "data": data_str,
+                            "data": data,
                             categoria: {item: quantidade}
                         })
 
-                    #FIFO para manter apenas últimos 30 dias
-                    consumo_diario_limpar(dados_consumo_diario, limite=30)
+                    #FIFO para manter apenas últimos 7 dias
+                    consumo_diario_limpar(dados_consumo_diario, limite=7)
                     salvar_dados("consumo_diario.json", dados_consumo_diario)
                     
 
