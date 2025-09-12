@@ -147,4 +147,6 @@ def menu_funcionario() -> None:
 
 
 if __name__ == "__main__":
+    t = threading.Thread(target=worker, daemon=True)
+    t.start()
     menu_geral()

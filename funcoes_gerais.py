@@ -1,6 +1,7 @@
 import os
 import json
 import random
+import time
 
 
 def carregar_dados(arquivo: str) -> dict:

@@ -1,6 +1,5 @@
 from datetime import datetime
 from funcoes_gerais import *
-import time
 from faker import Faker
 
 
@@ -62,9 +61,8 @@ def checar_consumo_diario() -> None:
 
 def registro_aleatorio_estoque() -> dict:
     '''Gera um registro no estoque, registros e no consumo diário com valores aleatórios.'''
-    time.sleep(5) #A cada 5 segundos, gera um novo registro
-    estoque = carregar_dados('estoque.json')
-    consumo_diario = carregar_dados('consumo_diario.json')
+    #estoque = carregar_dados('estoque.json')
+    #consumo_diario = carregar_dados('consumo_diario.json')
     registros = carregar_dados('registros.json')
     id_registro = gerar_id(registros)
     data_registro = fake.date_time_this_year().strftime("%d/%m/%Y %H:%M:%S")
@@ -77,4 +75,12 @@ def registro_aleatorio_estoque() -> dict:
         'data_registro': data_registro,
         'tipo_registro': tipo_registro
     }
+    
     salvar_dados('registros.json', registros)
+
+
+def worker():
+    '''Função worker para adicionar registros aleatórios periodicamente.'''
+    while True:
+        registro_aleatorio_estoque()
+        time.sleep(5)  # Aguarda 5 segundos antes de adicionar o próximo registro
