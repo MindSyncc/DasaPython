@@ -191,118 +191,58 @@
         "data_registro": "02/07/2025 01:59:35",
         "tipo_registro": "adicionar"
     },
-    "2136": {
-        "insumo": "mascaras_cirurgicas",
-        "quantidade": 225,
-        "data_registro": "16/06/2025 17:15:18",
-        "tipo_registro": "adicionar"
-    },
-    "6516": {
-        "insumo": "gazes",
-        "quantidade": 106,
-        "data_registro": "16/06/2025 11:42:32",
-        "tipo_registro": "remover"
-    },
-    "9929": {
+    "5738": {
         "insumo": "frascos_urinas_24h",
-        "quantidade": 223,
-        "data_registro": "14/07/2025 04:59:34",
+        "quantidade": 432,
+        "data_registro": "08/01/2025 14:08:22",
         "tipo_registro": "adicionar"
     },
-    "7132": {
-        "insumo": "frascos_estereis",
-        "quantidade": 143,
-        "data_registro": "17/03/2025 07:15:31",
-        "tipo_registro": "adicionar"
-    },
-    "2839": {
-        "insumo": "gazes",
-        "quantidade": 139,
-        "data_registro": "12/06/2025 04:43:26",
-        "tipo_registro": "remover"
-    },
-    "4672": {
-        "insumo": "frascos_estereis",
-        "quantidade": 209,
-        "data_registro": "01/03/2025 01:09:58",
-        "tipo_registro": "adicionar"
-    },
-    "4267": {
-        "insumo": "agulhas",
-        "quantidade": 458,
-        "data_registro": "05/06/2025 03:01:50",
-        "tipo_registro": "remover"
-    },
-    "9821": {
-        "insumo": "frascos_estereis",
-        "quantidade": 283,
-        "data_registro": "14/04/2025 18:04:44",
-        "tipo_registro": "adicionar"
-    },
-    "3985": {
-        "insumo": "etiquetas_identificadoras",
-        "quantidade": 334,
-        "data_registro": "29/01/2025 02:42:49",
-        "tipo_registro": "adicionar"
-    },
-    "6658": {
-        "insumo": "sabonete_liquido",
-        "quantidade": 389,
-        "data_registro": "06/03/2025 23:27:07",
-        "tipo_registro": "adicionar"
-    },
-    "6973": {
-        "insumo": "agulhas",
-        "quantidade": 367,
-        "data_registro": "28/05/2025 23:26:23",
-        "tipo_registro": "remover"
-    },
-    "2264": {
-        "insumo": "agulhas",
-        "quantidade": 241,
-        "data_registro": "11/06/2025 04:56:55",
-        "tipo_registro": "adicionar"
-    },
-    "6383": {
-        "insumo": "espatulas_descartaveis",
-        "quantidade": 171,
-        "data_registro": "08/09/2025 13:18:20",
-        "tipo_registro": "adicionar"
-    },
-    "4871": {
-        "insumo": "sabonete_liquido",
-        "quantidade": 253,
-        "data_registro": "30/05/2025 05:52:17",
-        "tipo_registro": "adicionar"
-    },
-    "3056": {
-        "insumo": "seringas",
-        "quantidade": 186,
-        "data_registro": "07/09/2025 16:27:57",
-        "tipo_registro": "adicionar"
-    },
-    "8992": {
-        "insumo": "luvas_descartaveis",
-        "quantidade": 229,
-        "data_registro": "11/01/2025 00:53:20",
-        "tipo_registro": "adicionar"
-    },
-    "8374": {
+    "2634": {
         "insumo": "sacos_plasticos",
-        "quantidade": 117,
-        "data_registro": "24/01/2025 21:28:27",
+        "quantidade": 470,
+        "data_registro": "31/07/2025 01:29:23",
         "tipo_registro": "adicionar"
     },
-    "8209": {
-        "insumo": "frascos_coletores",
-        "quantidade": 411,
-        "data_registro": "05/04/2025 11:08:50",
+    "3526": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 306,
+        "data_registro": "09/06/2025 06:15:41",
         "tipo_registro": "adicionar"
     },
-    "9415": {
-        "insumo": "seringas",
-        "quantidade": 416,
-        "data_registro": "06/02/2025 23:39:51",
+    "7896": {
+        "insumo": "frascos_estereis",
+        "quantidade": 230,
+        "data_registro": "19/03/2025 09:24:50",
         "tipo_registro": "adicionar"
+    },
+    "7436": {
+        "insumo": "copos_coletores",
+        "quantidade": 273,
+        "data_registro": "08/09/2025 10:52:59",
+        "tipo_registro": "adicionar"
+    },
+    "8982": {
+        "insumo": "copos_coletores",
+        "quantidade": 306,
+        "data_registro": "28/06/2025 12:25:09",
+        "tipo_registro": "adicionar"
+    },
+    "9983": {
+        "insumo": "tubos_transporte",
+        "quantidade": 228,
+        "data_registro": "24/04/2025 11:19:48",
+        "tipo_registro": "adicionar"
+    },
+    "7103": {
+        "insumo": "tubos_transporte",
+        "quantidade": 440,
+        "data_registro": "07/05/2025 12:25:46",
+        "tipo_registro": "adicionar"
+    },
+    "9516": {
+        "insumo": "copos_coletores",
+        "quantidade": 424,
+        "data_registro": "08/09/2025 07:38:04",
+        "tipo_registro": "remover"
     }
 }

@@ -11,6 +11,12 @@
             "coleta_sangue": {
                 "agulhas": 47
             }
+        },
+        {
+            "data": "08/09/2025 07:38:04",
+            "coleta_urina": {
+                "copos_coletores": 424
+            }
         }
     ]
 }

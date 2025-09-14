@@ -35,7 +35,7 @@ def organizar_insumos_por_consumo() -> dict:
             prioridade = 0 if nome == insumo_consumido else 1
             lista_insumos.append((nome, qtd, prioridade))
 
-    #Ordena a lista por quick_sort
+    #Ordena a lista por merge_sort
         lista_ordenada = merge_sort(lista_insumos, key=lambda x: (x[2], x[0]))
     #Reconstrui dicionário ordenado
     insumos_ordenados = {nome: qtd for nome, qtd, _ in lista_ordenada}

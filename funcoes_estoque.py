@@ -70,7 +70,36 @@ def escolher_produto() -> tuple[str, str]:
         print("Opção inválida. Tente novamente.\n")
         return escolher_produto()
 
-      
+
+def registro_aleatorio_estoque() -> dict:
+    '''Gera um registro no estoque, registros e no consumo diário com valores aleatórios.'''
+    #estoque = carregar_dados('estoque.json')
+    #consumo_diario = carregar_dados('consumo_diario.json')
+    registros = carregar_dados('registros.json')
+    id_registro = gerar_id(registros)
+    data_registro = fake.date_time_this_year().strftime("%d/%m/%Y %H:%M:%S")
+    data_registro_simples = data_registro.strftime('%d/%m/%Y')
+    categoria, produto = escolher_produto_aleatorio()
+    tipo_registro = random_choice_registro(produto)
+    qtd = random.randint(100, 500)
+    registros[id_registro] = {
+        'insumo': produto,
+        'quantidade': qtd,
+        'data_registro': data_registro,
+        'tipo_registro': tipo_registro
+    }
+    #atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro)
+    salvar_dados('registros.json', registros)
+    atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro_simples)
+    
+
+def registro_periodico() -> None:
+    '''Função registro_periodico para adicionar registros aleatórios periodicamente.'''
+    while True:
+        registro_aleatorio_estoque()
+        time.sleep(5)  # Aguarda 5 segundos antes de adicionar o próximo registro
+
+
 def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str, data: None) -> None:
     """Atualiza o estoque de um item em uma categoria específica e registra consumo diário."""
     estoque = carregar_dados("estoque.json") or {}

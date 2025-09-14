@@ -5,17 +5,17 @@
             "gazes": 1000,
             "seringas": 130,
             "algodao": 200,
-            "tubos_transporte": 200
+            "tubos_transporte": 868
         },
         "coleta_urina": {
-            "frascos_estereis": 300,
-            "frascos_urinas_24h": 350,
-            "copos_coletores": 300
+            "frascos_estereis": 530,
+            "frascos_urinas_24h": 1088,
+            "copos_coletores": 455
         },
         "coleta_fezes": {
             "frascos_coletores": 200,
             "espatulas_descartaveis": 120,
-            "sacos_plasticos": 230
+            "sacos_plasticos": 700
         },
         "materiais_gerais": {
             "mascaras_cirurgicas": 130,
