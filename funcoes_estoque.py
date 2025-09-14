@@ -1,7 +1,5 @@
-from datetime import datetime, date
+from datetime import datetime
 from funcoes_gerais import *
-from funcoes_consumo import consumo_diario_limpar
-
 
 def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     '''Registra a adição ou remoção de produtos no estoque.'''
