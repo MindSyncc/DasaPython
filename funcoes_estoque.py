@@ -96,9 +96,9 @@ def registro_aleatorio_estoque() -> dict:
     #consumo_diario = carregar_dados('consumo_diario.json')
     registros = carregar_dados('registros.json')
     id_registro = gerar_id(registros)
-    data_dt = fake.date_time_this_year()  # datetime ainda
-    data_registro = data_dt.strftime("%d/%m/%Y %H:%M:%S")   # string completa
-    data_registro_simples = data_dt.strftime("%d/%m/%Y")    # só a data
+    data_dt = fake.date_time_this_year()  # Criação do datatime fake
+    data_registro = data_dt.strftime("%d/%m/%Y %H:%M:%S")   # Formatação do datatime para registro
+    data_registro_simples = data_dt.strftime("%d/%m/%Y")    # Formatação do datatime para consumo diário
     categoria, produto = escolher_produto_aleatorio()
     tipo_registro = random_choice_registro(produto)
     qtd = random.randint(100, 500)
@@ -110,7 +110,7 @@ def registro_aleatorio_estoque() -> dict:
     }
     #atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro)
     salvar_dados('registros.json', registros)
-    atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro_simples)
+    atualizar_estoque(categoria, produto, qtd, tipo_registro, data_registro_simples, aleatorio=True)
     
 
 def registro_periodico() -> None:
@@ -122,56 +122,53 @@ def registro_periodico() -> None:
         time.sleep(5)
 
 
-def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str, data: None) -> None:
-    """Atualiza o estoque de um item em uma categoria específica e registra consumo diário."""
+def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str,
+                      data: None, aleatorio: bool) -> None:
     estoque = carregar_dados("estoque.json")
     dados_consumo_diario = carregar_dados("consumo_diario.json")
     fila_consumo = dados_consumo_diario["consumo_diario"]
+
+    def log(msg: str) -> None:
+        if not aleatorio:  # imprime só quando aleatorio é False
+            print(msg)
 
     if categoria in estoque.get("insumos", {}):
         if item in estoque["insumos"][categoria]:
             if acao == "adicionar":
                 estoque["insumos"][categoria][item] += quantidade
-                print(f"{quantidade} unidades adicionadas a '{item}' em '{categoria}'.")
+                log(f"{quantidade} unidades adicionadas a '{item}' em '{categoria}'.")
 
             elif acao == "remover":
                 if estoque["insumos"][categoria][item] >= quantidade:
                     estoque["insumos"][categoria][item] -= quantidade
-                    print(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
+                    log(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
 
                     # Registro de consumo diário
                     if fila_consumo and fila_consumo[-1]["data"] == data:
-                        if categoria in fila_consumo[-1]:
-                            if item in fila_consumo[-1][categoria]:
-                                fila_consumo[-1][categoria][item] += quantidade
-                            else:
-                                fila_consumo[-1][categoria][item] = quantidade
-                        else:
-                            fila_consumo[-1][categoria] = {item: quantidade}
+                        fila_consumo[-1].setdefault(categoria, {}).setdefault(item, 0)
+                        fila_consumo[-1][categoria][item] += quantidade
                     else:
                         fila_consumo.append({
                             "data": data,
                             categoria: {item: quantidade}
                         })
 
-                    #FIFO para manter apenas últimos 7 dias
                     consumo_diario_limpar(dados_consumo_diario, limite=7)
                     salvar_dados("consumo_diario.json", dados_consumo_diario)
-                    
-
                 else:
-                    print(f"Erro: Não há {quantidade} unidades suficientes de '{item}' para remover.")
+                    log(f"Erro: Não há {quantidade} unidades suficientes de '{item}' para remover.")
             else:
-                print("Erro: Ação inválida. Use 'adicionar' ou 'remover'.")
+                log("Erro: Ação inválida. Use 'adicionar' ou 'remover'.")
         else:
-            print(f"Erro: Item '{item}' não encontrado na categoria '{categoria}'.")
+            log(f"Erro: Item '{item}' não encontrado na categoria '{categoria}'.")
     else:
-        print(f"Erro: Categoria '{categoria}' não encontrada.")
+        log(f"Erro: Categoria '{categoria}' não encontrada.")
+
 
     # Salvar estoque atualizado sempre
     salvar_dados("estoque.json", estoque)
-
-    input("Pressione Enter para continuar...")
+    if aleatorio == False:
+        input("Pressione Enter para continuar...")
 
 
 def buscar_produto_estoque():

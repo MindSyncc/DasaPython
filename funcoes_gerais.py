@@ -101,6 +101,8 @@ def random_choice_registro(produto: str) -> str:
         if produto in itens:
             if itens[produto] < 500:
                 return "adicionar"
+            elif itens[produto] > 1000:
+                return "remover"
             else:
                 return random.choice(["adicionar", "remover"])
 
