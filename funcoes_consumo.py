@@ -1,7 +1,6 @@
 from datetime import datetime
 from funcoes_gerais import *
 
-
 def organizar_insumos_por_consumo() -> dict:
     '''Organiza os insumos do estoque com base no último consumo registrado'''
     #Carrega os dados
@@ -46,3 +45,11 @@ def organizar_insumos_por_consumo() -> dict:
 def checar_consumo_diario() -> None:
     '''Checa o consumo diário de insumos e exibe ele na tela.'''
     input("Funcionalidade em desenvolvimento...")
+
+
+def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
+    '''Limitar o uso do arquivo consumo_diario.json para os últimos 7 dias.'''
+    if "consumo_diario" in dados_consumo:
+        fila_consumo = dados_consumo["consumo_diario"]
+        while len(fila_consumo) > limite: #FIFO
+            fila_consumo.pop(0) # Remove o registro mais antigo

@@ -119,7 +119,7 @@ def menu_funcionario() -> None:
                     quantidade = int(input("Digite a quantidade a ser adicionada: ").strip())
                     if quantidade <= 0:
                         raise ValueError
-                    atualizar_estoque(categoria, produto, quantidade, "adicionar", datetime.now())
+                    atualizar_estoque(categoria, produto, quantidade, "adicionar", datetime.now().strftime("%d/%m/%Y"))
                     registro_estoque(produto, quantidade, "adicionar")
                     atualizar_situacao_estoque()
                 except ValueError:
@@ -131,8 +131,8 @@ def menu_funcionario() -> None:
                     quantidade = int(input("Digite a quantidade a ser retirada: ").strip())
                     if quantidade <= 0:
                         raise ValueError
-                    atualizar_estoque(categoria, produto, quantidade, "remover", datetime.now())
-                    registro_estoque(produto, quantidade, "remover")
+                    atualizar_estoque(categoria, produto, quantidade, "remover", datetime.now().strftime("%d/%m/%Y"))
+                    registro_estoque(produto, quantidade, "remover")   
                     atualizar_situacao_estoque()
                 except ValueError:
                     print("Quantidade inválida. Deve ser um número inteiro positivo.")
@@ -147,4 +147,6 @@ def menu_funcionario() -> None:
 
 
 if __name__ == "__main__":
+    #t = threading.Thread(target=registro_periodico)
+    #t.start()
     menu_geral()

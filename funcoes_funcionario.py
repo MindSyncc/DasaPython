@@ -65,7 +65,7 @@ def achar_funcionario_por_nome(nome: str) -> dict:
         lista_funcionarios.append(dados_com_id)
 
     # Buscar pelo nome usando busca sequencial
-    return busca_sequencial(lista_funcionarios, "nome", nome)
+    return busca_sequencial(lista_funcionarios, nome)
 
 
 def realizar_login() -> dict:
@@ -73,7 +73,7 @@ def realizar_login() -> dict:
     funcionarios = carregar_dados('funcionarios.json')
     if not funcionarios:
         print("Nenhum funcionário cadastrado.")
-        input("Pressione Enter para continuar...")
+        time.sleep(1)
         return None
 
     try:
@@ -90,5 +90,5 @@ def realizar_login() -> dict:
             return funcionario
 
     print("Nome ou senha incorretos.")
-    input("Pressione Enter para continuar...")
+    time.sleep(1)
     return None

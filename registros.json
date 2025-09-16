@@ -244,5 +244,89 @@
         "quantidade": 424,
         "data_registro": "08/09/2025 07:38:04",
         "tipo_registro": "remover"
+    },
+    "4749": {
+        "insumo": "frascos_estereis",
+        "quantidade": 103,
+        "data_registro": "22/06/2025 06:56:54",
+        "tipo_registro": "adicionar"
+    },
+    "4909": {
+        "insumo": "toucas_descartaveis",
+        "quantidade": 295,
+        "data_registro": "22/01/2025 19:46:18",
+        "tipo_registro": "adicionar"
+    },
+    "3764": {
+        "insumo": "copos_coletores",
+        "quantidade": 181,
+        "data_registro": "03/04/2025 15:30:31",
+        "tipo_registro": "adicionar"
+    },
+    "8389": {
+        "insumo": "etiquetas_identificadoras",
+        "quantidade": 432,
+        "data_registro": "26/02/2025 05:40:24",
+        "tipo_registro": "adicionar"
+    },
+    "1072": {
+        "insumo": "copos_coletores",
+        "quantidade": 321,
+        "data_registro": "09/02/2025 16:38:32",
+        "tipo_registro": "remover"
+    },
+    "1434": {
+        "insumo": "frascos_estereis",
+        "quantidade": 254,
+        "data_registro": "17/06/2025 07:32:31",
+        "tipo_registro": "remover"
+    },
+    "8461": {
+        "insumo": "papel_toalha",
+        "quantidade": 492,
+        "data_registro": "31/07/2025 18:34:15",
+        "tipo_registro": "adicionar"
+    },
+    "2273": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 168,
+        "data_registro": "01/03/2025 08:10:56",
+        "tipo_registro": "adicionar"
+    },
+    "7056": {
+        "insumo": "copos_coletores",
+        "quantidade": 116,
+        "data_registro": "03/04/2025 11:23:28",
+        "tipo_registro": "adicionar"
+    },
+    "9082": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 200,
+        "data_registro": "03/04/2025 05:59:21",
+        "tipo_registro": "adicionar"
+    },
+    "6373": {
+        "insumo": "frascos_coletores",
+        "quantidade": 424,
+        "data_registro": "21/07/2025 17:37:53",
+        "tipo_registro": "adicionar"
+    },
+    "6333": {
+        "insumo": "gazes",
+        "quantidade": 120,
+        "data_registro": "15/09/2025 22:00:15",
+        "tipo_registro": "adicionar"
+    },
+    "4147": {
+        "insumo": "alcool_70",
+        "quantidade": 100,
+        "data_registro": "15/09/2025 22:00:28",
+        "tipo_registro": "remover"
+    },
+    "9585": {
+        "insumo": "alcool_70",
+        "quantidade": 1,
+        "data_registro": "15/09/2025 22:03:55",
+        "tipo_registro": "remover"
     }
 }

@@ -1,5 +1,6 @@
 from datetime import datetime
 from funcoes_gerais import *
+from funcoes_consumo import consumo_diario_limpar
 
 def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     '''Registra a adição ou remoção de produtos no estoque.'''
@@ -42,9 +43,13 @@ def escolher_produto() -> tuple[str, str]:
             7: ("Luvas Descartáveis", "luvas_descartaveis")
         }),
         4: ("materiais_gerais", {
-            1: ("Álcool 70%", "alcool_70"),
-            2: ("Papel Higiênico", "papel_higienico"),
-            3: ("Sacos de Lixo", "sacos_lixo")
+            1: ("Mascaras cirurgícas", "mascaras_cirurgicas"),
+            2: ("Prope", "prope"),
+            3: ("Papel toalha", "papel_toalha"),
+            4: ("Etiquetas identificadoras", "etiquetas_identificadoras"),
+            5: ("Luvas descartáveis", "luvas_descartaveis"),
+            6: ("Sabonete líquido", "sabonete_liquido"),
+            7: ("Toucas descartáveis", "toucas_descartaveis")
         })
     }
 
@@ -71,14 +76,29 @@ def escolher_produto() -> tuple[str, str]:
         return escolher_produto()
 
 
+def escolher_produto_aleatorio()-> tuple:
+    '''Escolhe um produto aleatório do estoque.'''
+    estoque = carregar_dados('estoque.json')
+    categorias = list(estoque.get("insumos", {}).keys())
+    if not categorias:
+        return None, None
+    categoria = random.choice(categorias)
+    produtos = list(estoque["insumos"][categoria].keys())
+    if not produtos:
+        return None, None
+    produto = random.choice(produtos)
+    return categoria, produto
+
+
 def registro_aleatorio_estoque() -> dict:
     '''Gera um registro no estoque, registros e no consumo diário com valores aleatórios.'''
     #estoque = carregar_dados('estoque.json')
     #consumo_diario = carregar_dados('consumo_diario.json')
     registros = carregar_dados('registros.json')
     id_registro = gerar_id(registros)
-    data_registro = fake.date_time_this_year().strftime("%d/%m/%Y %H:%M:%S")
-    data_registro_simples = data_registro.strftime('%d/%m/%Y')
+    data_dt = fake.date_time_this_year()  # datetime ainda
+    data_registro = data_dt.strftime("%d/%m/%Y %H:%M:%S")   # string completa
+    data_registro_simples = data_dt.strftime("%d/%m/%Y")    # só a data
     categoria, produto = escolher_produto_aleatorio()
     tipo_registro = random_choice_registro(produto)
     qtd = random.randint(100, 500)
@@ -94,16 +114,18 @@ def registro_aleatorio_estoque() -> dict:
     
 
 def registro_periodico() -> None:
-    '''Função registro_periodico para adicionar registros aleatórios periodicamente.'''
     while True:
-        registro_aleatorio_estoque()
-        time.sleep(5)  # Aguarda 5 segundos antes de adicionar o próximo registro
+        try:
+            registro_aleatorio_estoque()
+        except Exception as e:
+            print("Erro na thread:", e)
+        time.sleep(5)
 
 
 def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str, data: None) -> None:
     """Atualiza o estoque de um item em uma categoria específica e registra consumo diário."""
-    estoque = carregar_dados("estoque.json") or {}
-    dados_consumo_diario = carregar_dados("consumo_diario.json") or {}
+    estoque = carregar_dados("estoque.json")
+    dados_consumo_diario = carregar_dados("consumo_diario.json")
     fila_consumo = dados_consumo_diario["consumo_diario"]
 
     if categoria in estoque.get("insumos", {}):
@@ -220,7 +242,10 @@ def notificacao_estoque() -> None:
     for categoria in estoque.get("insumos", {}):
         for item, quantidade in estoque["insumos"][categoria].items():
             if quantidade <= 100:
-                print(f"ALERTA: O item '{item}' na categoria '{categoria}' está com baixo estoque ({quantidade} unidades).")
+                print(f'''ALERTA: O item {item.upper()}
+na categoria {categoria.upper()}
+está com baixo estoque ({quantidade} unidades).''')
+                time.sleep(1)  # Pausa para evitar muitas mensagens de uma vez
 
 
 def carregar_estoque() -> None:
