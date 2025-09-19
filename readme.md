@@ -1,6 +1,11 @@
-Sistema de Controle de Estoque - DASA (Simulação)
+📋 Sistema de Controle de Estoque - DASA
+📖 Visão Geral
+Sistema de controle de estoque desenvolvido para laboratórios DASA (Diagnósticos da América), especializado no gerenciamento de insumos médicos para coleta de materiais biológicos. A solução oferece controle em tempo real do estoque com alertas inteligentes para situações críticas.
 
-INTEGRANTES:
+🎯 Objetivo
+Melhorar a gestão de insumos médicos essenciais, prevenindo tanto a falta quanto o excesso de produtos através de um sistema eficiente com atualizações em tempo real.
+
+👥 Equipe
 Fernando Carlos Colque Huaranca - rm558095
 
 Heloísa Fleury Jardim - rm556378 - 2ESPV
@@ -11,130 +16,184 @@ Julia Carolina Ferreira Silva - rm558896
 
 Pedro Batista - rm558137
 
- Sobre o Projeto
-Este projeto simula o controle de estoque de uma unidade da DASA (Diagnósticos da América), voltada para a coleta de sangue, urina e fezes. Diante de problemas reais de controle e comunicação interna enfrentados por laboratórios, esta solução foi idealizada para oferecer um sistema simples, funcional e com atualizações em tempo real do estoque.
-
-O objetivo é melhorar a visibilidade e gestão de insumos críticos usados no processo de coleta, garantindo que não faltem itens essenciais nem haja desperdício por excesso.
-
- Como Funciona
-O sistema é executado via terminal (CLI - Command Line Interface), simulando dois tipos de usuários:
-
-Administrador: pode cadastrar funcionários e consultar a situação do estoque.
-
-Funcionário: pode registrar movimentações (entrada/saída) e consultar produtos.
-
-#Logins testes
-Login do administrador:
-usuario: teste
-senha: teste
-
-Login do Usuario:
-usuario: teste1
-usuario: teste1
-
-As informações são armazenadas em arquivos JSON, simulando um banco de dados simples, e os dados do estoque são atualizados em tempo real após cada ação.
-
- Funcionalidades
- Acesso
+⚙️ Funcionalidades
+🔐 Sistema de Autenticação
 Login com usuário e senha
 
-Dois perfis de acesso: administrador e funcionário
+Dois perfis de acesso: Administrador e Funcionário
 
-🛒 Estoque
-Registro de entrada e saída de insumos
+Controle de permissões por cargo
 
-Controle por categoria (ex: "tubos", "luvas", "etiquetas")
+📦 Gestão de Estoque
+✅ Registro de entrada e saída de insumos
 
-Situação do estoque (baixo, normal ou alto)
+✅ Controle por categorias organizadas
 
-Notificações para itens com estoque crítico
+✅ Sistema de alertas para estoque baixo/alto
 
-Busca binária para localizar rapidamente um item (eficiente com grandes volumes)
+✅ Busca eficiente de produtos
 
- Administração
-Cadastro de novos funcionários
+✅ Histórico completo de movimentações
 
-Registro com nome, senha, cargo e data de admissão
+👥 Administração
+✅ Cadastro de novos funcionários
 
-Proteção contra duplicidade de funcionários
+✅ Controle de acesso hierárquico
 
- Estrutura de Arquivos
-estoque.json: contém os insumos categorizados com suas quantidades
+✅ Prevenção contra duplicidade de registros
 
-funcionarios.json: armazena os usuários cadastrados
+📊 Relatórios e Monitoramento
+✅ Situação do estoque em tempo real
 
-registros.json: histórico de movimentações no estoque
+✅ Consumo diário de insumos
 
-situacao_estoque.json: status atual de cada item (baixo, normal, alto)
+✅ Notificações automáticas
 
- Hipóteses e Dados Considerados
-Categorias como: tubos, luvas, seringas, frascos, etiquetas, etc.
+🏗️ Arquitetura do Sistema
+📋 Estrutura de Arquivos
+text
+sistema_estoque/
+├── menu.py                 # Menu principal do sistema
+├── funcoes_gerais.py       # Funções utilitárias gerais
+├── funcoes_estoque.py      # Funções de gestão de estoque
+├── funcoes_funcionario.py  # Funções de gestão de usuários
+├── funcoes_consumo.py      # Funções de controle de consumo
+├── estoque.json           # Dados de estoque atual
+├── funcionarios.json      # Base de usuários cadastrados
+├── registros.json         # Histórico de movimentações
+├── consumo_diario.json    # Registro de consumo por data
+└── situacao_estoque.json  # Status atual dos itens
+🧮 Algoritmos Implementados
+Algoritmo	Complexidade	Localização	Status
+Busca Binária	O(log n)	funcoes_gerais.py	✅ Implementado
+Busca Sequencial	O(n)	funcoes_gerais.py	✅ Implementado
+Merge Sort	O(n log n)	funcoes_gerais.py	✅ Implementado
+Fila (FIFO)	O(1) para remoção	funcoes_consumo.py	✅ Implementado
+🚀 Como Executar
+Pré-requisitos
+Python 3.8 ou superior instalado
 
-Um estoque com variação entre 0 a 1000 unidades por item
+Bibliotecas: Faker (instalável via pip)
 
-Faixas de alerta:
+Instalação
+bash
+# Clone o repositório ou copie os arquivos
+git clone <repositorio>
 
-🔴 Abaixo de 100 unidades: Baixo estoque
+# Instale as dependências (se necessário)
+pip install faker
 
-🟢 Acima de 500 unidades: Estoque alto
+# Execute o sistema
+python menu.py
+🔐 Credenciais de Acesso
+Administrador:
 
-Todos os insumos são identificados por nome (string) e quantidade (inteiro)
+Usuário: teste
 
-A entrada/saída é controlada manualmente por funcionários
+Senha: teste
 
-O sistema não está integrado com sensores nem bancos de dados externos
+Funcionário:
 
- Estrutura Técnica
+Usuário: teste1
 
- Algoritmos Aplicados
-Busca Binária (O(log n)) para localizar itens rapidamente no estoque
+Senha: teste1
 
-Ordenação (O(n log n)) antes da busca para garantir eficiência
+📋 Categorias de Produtos
+🩸 Coleta de Sangue
+Agulhas, Gazes, Seringas, Algodão, Tubos de Transporte
 
-Análises de Complexidade (O-grande) documentadas nas funções principais
+💧 Coleta de Urina
+Frascos Estéreis, Frascos de Urina 24h, Copos Coletores
 
-(Opcional) Recursividade com memorização pode ser adicionada para fins didáticos
+💩 Coleta de Fezes
+Frascos Coletores, Espátulas Descartáveis, Sacos Plásticos
 
-Armazenamento
-Todos os dados são salvos em arquivos JSON
+🧼 Materiais Gerais
+Máscaras Cirúrgicas, Propé, Toucas Descartáveis, Sabonete Líquido, Papel Toalha, Etiquetas Identificadoras, Luvas Descartáveis
 
-A leitura/escrita é feita de forma segura e com tratamento de erros
+⚠️ Sistema de Alertas
+🔴 Estoque Baixo: Abaixo de 100 unidades
 
- Normas e Boas Práticas
-Código documentado com docstrings em cada função
+🟢 Estoque Alto: Acima de 500 unidades
 
-Nomes de variáveis descritivos e em português
+🟡 Estoque Normal: Entre 100 e 500 unidades
 
-Separação clara entre lógica de negócios e interface do usuário (menu)
+🔄 Fluxo de Trabalho
+Login → Autenticação no sistema
 
-Comentários com análise de complexidade onde necessário
+Menu Principal → Acesso conforme perfil
 
+Gestão de Estoque → Adição/remoção de itens
 
+Registro Automático → Histórico de movimentações
 
-Como Executar
+Atualização em Tempo Real → Situação do estoque
 
-Certifique-se de ter o Python instalado (3.8+)
+Alertas → Notificações de estoque crítico
 
-Clone o projeto ou copie os arquivos .py e .json
+📊 Exemplo de Uso
+python
+# 1. Login como funcionário
+# 2. Navegar até "Adicionar Produto"
+# 3. Selecionar categoria: "coleta_sangue"
+# 4. Selecionar produto: "agulhas"
+# 5. Informar quantidade: 200
+# 6. Sistema atualiza estoque automaticamente
+# 7. Registro é salvo no histórico
+🛠️ Tecnologias Utilizadas
+Linguagem: Python 3.8+
 
+Armazenamento: JSON files
 
-Siga as instruções no terminal
+Interface: CLI (Command Line Interface)
 
-🧪 Exemplo de Uso
-Funcionário acessa o sistema
+Autenticação: Sistema próprio de usuários/senhas
 
-Escolhe “Adicionar Produto”
+Data e Hora: Biblioteca datetime nativa
 
-Digita: categoria = tubos, produto = tubo roxo, quantidade = 200
+📈 Status do Projeto
+✅ Funcionalidades Implementadas
+Sistema de autenticação com dois perfis
 
-Produto é registrado e estoque atualizado
+CRUD completo de estoque
 
-Se quantidade cair abaixo de 100, um alerta será exibido ao administrador
+Sistema de alertas de estoque
 
-Login do administrador:
-usuario: teste
-senha: teste
+Histórico de movimentações
 
-Login do Usuario:
-usuario: teste1
-usuario: teste1
+Busca binária e sequencial
+
+Algoritmo de ordenação Merge Sort
+
+Estrutura de dados Fila (FIFO)
+
+Consumo diário com limite automático
+
+Interface intuitiva em português
+
+📋 Requisitos Pendentes
+Implementação de Quick Sort
+
+Implementação de estrutura de Pilha
+
+Melhorias na documentação de funções
+
+Sistema de backup automático
+
+Relatórios estatísticos avançados
+
+🐛 Solução de Problemas
+Erro Comum: Módulo não encontrado
+bash
+# Instale o Faker se necessário
+pip install faker
+Erro Comum: Arquivo JSON corrompido
+Verifique se os arquivos JSON estão com formatação válida
+
+Execute o sistema novamente para regenerar arquivos se necessário
+
+📞 Suporte
+Para dúvidas técnicas ou problemas de implementação, entre em contato com a equipe de desenvolvimento através dos emails institucionais.
+
+📄 Licença
+Este projeto é destinado para fins educacionais como parte do curso de Ciência da Computação.
