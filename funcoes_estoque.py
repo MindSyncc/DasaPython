@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 from funcoes_gerais import *
 from funcoes_consumo import consumo_diario_limpar
 
@@ -74,20 +75,6 @@ def escolher_produto() -> tuple[str, str]:
     except (KeyError, ValueError):
         print("Opção inválida. Tente novamente.\n")
         return escolher_produto()
-
-
-def escolher_produto_aleatorio()-> tuple:
-    '''Escolhe um produto aleatório do estoque.'''
-    estoque = carregar_dados('estoque.json')
-    categorias = list(estoque.get("insumos", {}).keys())
-    if not categorias:
-        return None, None
-    categoria = random.choice(categorias)
-    produtos = list(estoque["insumos"][categoria].keys())
-    if not produtos:
-        return None, None
-    produto = random.choice(produtos)
-    return categoria, produto
 
 
 def registro_aleatorio_estoque() -> dict:

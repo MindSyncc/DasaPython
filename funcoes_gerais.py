@@ -1,8 +1,6 @@
 import os
 import json
 import random
-import time
-import random
 from faker import Faker
 
 
@@ -107,4 +105,16 @@ def random_choice_registro(produto: str) -> str:
                 return random.choice(["adicionar", "remover"])
 
 
+def escolher_produto_aleatorio()-> tuple:
+    '''Escolhe um produto aleatório do estoque.'''
+    estoque = carregar_dados('estoque.json')
+    categorias = list(estoque.get("insumos", {}).keys())
+    if not categorias:
+        return None, None
+    categoria = random.choice(categorias)
+    produtos = list(estoque["insumos"][categoria].keys())
+    if not produtos:
+        return None, None
+    produto = random.choice(produtos)
+    return categoria, produto
 

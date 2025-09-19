@@ -17,12 +17,12 @@ def organizar_insumos_por_consumo() -> dict:
         return estoque  # nenhum consumo registrado ainda
 
     #Encontra o consumo mais recente na lista 'consumos'
-    #A função 'max' vai comparar os itens da lista e retornar o maior segundo o critério definido em 'key'
+    #A função 'max' vai comparar os itens da lista e retornar o maior
     ultimo_consumo = max(
         consumos,  # Lista de dicionários, cada um representando um consumo
         key=lambda x: datetime.strptime(
             x["data_registro"],  #Acessa a string da data dentro do dicionário
-            "%d/%m/%Y %H:%M:%S"  #Define o formato da data para conversão
+            "%d/%m/%Y %H:%M:%S"
         )
     )
     insumo_consumido = ultimo_consumo["insumo"]
