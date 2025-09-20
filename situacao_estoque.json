@@ -1,9 +1,9 @@
 {
     "coleta_sangue": {
-        "agulhas": "NORMAL",
+        "agulhas": "ALTO",
         "gazes": "ALTO",
         "seringas": "NORMAL",
-        "algodao": "NORMAL",
+        "algodao": "ALTO",
         "tubos_transporte": "ALTO"
     },
     "coleta_urina": {
@@ -17,12 +17,12 @@
         "sacos_plasticos": "ALTO"
     },
     "materiais_gerais": {
-        "mascaras_cirurgicas": "NORMAL",
+        "mascaras_cirurgicas": "ALTO",
         "prope": "NORMAL",
         "toucas_descartaveis": "NORMAL",
-        "sabonete_liquido": "ALTO",
-        "papel_toalha": "NORMAL",
+        "sabonete_liquido": "NORMAL",
+        "papel_toalha": "ALTO",
         "etiquetas_identificadoras": "ALTO",
-        "luvas_descartaveis": "NORMAL"
+        "luvas_descartaveis": "ALTO"
     }
 }

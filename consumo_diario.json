@@ -1,45 +1,77 @@
 {
     "consumo_diario": [
         {
-            "data": "09/02/2025",
-            "coleta_urina": {
-                "copos_coletores": 321
-            }
-        },
-        {
-            "data": "17/06/2025",
-            "coleta_urina": {
-                "frascos_estereis": 254
-            }
-        },
-        {
-            "data": "27/04/2025",
-            "materiais_gerais": {
-                "papel_toalha": 332
-            }
-        },
-        {
-            "data": "26/08/2025",
+            "data": "13/09/2025",
             "coleta_fezes": {
-                "sacos_plasticos": 222
+                "sacos_plasticos": 355
             }
         },
         {
-            "data": "16/08/2025",
-            "coleta_sangue": {
-                "agulhas": 261
-            }
-        },
-        {
-            "data": "04/08/2025",
+            "data": "14/09/2025",
             "materiais_gerais": {
-                "toucas_descartaveis": 336
+                "luvas_descartaveis": 273
+            },
+            "coleta_fezes": {
+                "espatulas_descartaveis": 491
             }
         },
         {
-            "data": "07/07/2025",
+            "data": "15/09/2025",
             "coleta_sangue": {
-                "agulhas": 338
+                "tubos_transporte": 319
+            },
+            "coleta_fezes": {
+                "sacos_plasticos": 451
+            }
+        },
+        {
+            "data": "16/09/2025",
+            "materiais_gerais": {
+                "mascaras_cirurgicas": 189
+            },
+            "coleta_sangue": {
+                "seringas": 105
+            },
+            "coleta_urina": {
+                "frascos_estereis": 136
+            }
+        },
+        {
+            "data": "17/09/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 447
+            },
+            "materiais_gerais": {
+                "mascaras_cirurgicas": 152
+            },
+            "coleta_sangue": {
+                "agulhas": 388
+            }
+        },
+        {
+            "data": "18/09/2025",
+            "coleta_fezes": {
+                "frascos_coletores": 414
+            },
+            "materiais_gerais": {
+                "toucas_descartaveis": 271
+            }
+        },
+        {
+            "data": "19/09/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 461,
+                "sacos_plasticos": 276
+            }
+        },
+        {
+            "data": "20/09/2025",
+            "coleta_urina": {
+                "frascos_estereis": 716,
+                "frascos_urinas_24h": 215
+            },
+            "coleta_sangue": {
+                "gazes": 463
             }
         }
     ]

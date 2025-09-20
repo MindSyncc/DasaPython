@@ -57,7 +57,7 @@ def menu_administrador() -> None:
         print("4. Checar Estoque")
         print("5. Buscar Produto no Estoque")
         print("6. Situação do Estoque")
-        print("7. Consumo diário (em desenvolvimento)")
+        print("7. Consumo diário dos 7 dias mais recentes")
         print("8. Sair")
         print("=" * 40)
 
@@ -84,7 +84,7 @@ def menu_administrador() -> None:
                 situacao_estoque()
                 input("Pressione Enter para continuar...")
             case '7':
-                print("Funcionalidade em desenvolvimento.")
+                checar_consumo_7_dias()
             case '8':
                 print("Saindo do menu administrador...")
                 time.sleep(1)

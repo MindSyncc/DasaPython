@@ -1,7 +1,7 @@
 from datetime import datetime
 import time
 from funcoes_gerais import *
-from funcoes_consumo import consumo_diario_limpar
+from funcoes_consumo import consumo_diario_limpar, ordenar_fila_consumo_por_data
 
 def registro_estoque(produto: str, quantidade: int, registro: str) -> None:
     '''Registra a adição ou remoção de produtos no estoque.'''
@@ -83,7 +83,9 @@ def registro_aleatorio_estoque() -> dict:
     #consumo_diario = carregar_dados('consumo_diario.json')
     registros = carregar_dados('registros.json')
     id_registro = gerar_id(registros)
-    data_dt = fake.date_time_this_year()  # Criação do datatime fake
+    data_dt = fake.date_time_between(
+    start_date='-7d',
+    end_date='now') #Gera uma data aleatória entre 7 dias atrás e agora
     data_registro = data_dt.strftime("%d/%m/%Y %H:%M:%S")   # Formatação do datatime para registro
     data_registro_simples = data_dt.strftime("%d/%m/%Y")    # Formatação do datatime para consumo diário
     categoria, produto = escolher_produto_aleatorio()
@@ -110,13 +112,13 @@ def registro_periodico() -> None:
 
 
 def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str,
-                      data: None, aleatorio: bool) -> None:
+                      data: str, aleatorio: bool) -> None:
     estoque = carregar_dados("estoque.json")
     dados_consumo_diario = carregar_dados("consumo_diario.json")
     fila_consumo = dados_consumo_diario["consumo_diario"]
 
     def log(msg: str) -> None:
-        if not aleatorio:  # imprime só quando aleatorio é False
+        if not aleatorio:
             print(msg)
 
     if categoria in estoque.get("insumos", {}):
@@ -130,17 +132,68 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str,
                     estoque["insumos"][categoria][item] -= quantidade
                     log(f"{quantidade} unidades removidas de '{item}' em '{categoria}'.")
 
-                    # Registro de consumo diário
-                    if fila_consumo and fila_consumo[-1]["data"] == data:
-                        fila_consumo[-1].setdefault(categoria, {}).setdefault(item, 0)
-                        fila_consumo[-1][categoria][item] += quantidade
+                    # Registro de consumo diário - usando fila FIFO
+                    registro_encontrado = None
+                    indice_registro = -1
+                    
+                    # Procura se já existe registro para esta data (mantém a ordem FIFO)
+                    for i, registro in enumerate(fila_consumo):
+                        if registro["data"] == data:
+                            registro_encontrado = registro
+                            indice_registro = i
+                            break
+                    
+                    # Se encontrou registro para a data, atualiza
+                    if registro_encontrado:
+                        if categoria not in registro_encontrado:
+                            registro_encontrado[categoria] = {}
+                        if item not in registro_encontrado[categoria]:
+                            registro_encontrado[categoria][item] = 0
+                        registro_encontrado[categoria][item] += quantidade
                     else:
+                        # Adiciona novo registro no final da fila (mantém FIFO)
                         fila_consumo.append({
                             "data": data,
                             categoria: {item: quantidade}
                         })
 
-                    consumo_diario_limpar(dados_consumo_diario, limite=7)
+                    # Consolida registros duplicados da mesma data (mantendo FIFO)
+                    # Cria uma nova lista consolidada mantendo a ordem
+                    nova_fila = []
+                    datas_processadas = []
+                    
+                    for registro in fila_consumo:
+                        data_registro = registro["data"]
+                        
+                        if data_registro not in datas_processadas:
+                            # Primeira vez que vemos esta data - cria registro consolidado
+                            registro_consolidado = {"data": data_registro}
+                            
+                            # Encontra todos os registros com esta data e consolida
+                            for outro_registro in fila_consumo:
+                                if outro_registro["data"] == data_registro:
+                                    for cat, itens in outro_registro.items():
+                                        if cat != "data":
+                                            if cat not in registro_consolidado:
+                                                registro_consolidado[cat] = {}
+                                            for item_nome, qtd in itens.items():
+                                                if item_nome not in registro_consolidado[cat]:
+                                                    registro_consolidado[cat][item_nome] = 0
+                                                registro_consolidado[cat][item_nome] += qtd
+                            
+                            nova_fila.append(registro_consolidado)
+                            datas_processadas.append(data_registro)
+                    
+                    # Substitui a fila original pela fila consolidada
+                    dados_consumo_diario["consumo_diario"] = nova_fila
+                    fila_consumo = nova_fila
+                    
+                    # Ordena a fila por data (mais antigo primeiro)
+                    ordenar_fila_consumo_por_data(fila_consumo)
+                    
+                    # Limpa registros antigos (mantém apenas os últimos 7 dias)
+                    consumo_diario_limpar(fila_consumo, limite=7)
+                    
                     salvar_dados("consumo_diario.json", dados_consumo_diario)
                 else:
                     log(f"Erro: Não há {quantidade} unidades suficientes de '{item}' para remover.")
@@ -151,10 +204,10 @@ def atualizar_estoque(categoria: str, item: str, quantidade: int, acao: str,
     else:
         log(f"Erro: Categoria '{categoria}' não encontrada.")
 
-
     # Salvar estoque atualizado sempre
     salvar_dados("estoque.json", estoque)
-    if aleatorio == False:
+    
+    if not aleatorio:
         input("Pressione Enter para continuar...")
 
 

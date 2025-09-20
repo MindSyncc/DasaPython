@@ -42,9 +42,37 @@ def organizar_insumos_por_consumo() -> dict:
     return insumos_ordenados
 
 
-def checar_consumo_diario() -> None:
-    '''Checa o consumo diário de insumos e exibe ele na tela.'''
-    input("Funcionalidade em desenvolvimento...")
+def checar_consumo_7_dias() -> None:
+    """
+    Checa o registro dos últimos 7 dias de insumos e exibe do mais recente
+    para o mais antigo, usando uma pilha.
+    """
+    dados_consumo = carregar_dados('consumo_diario.json')
+
+    # Verifica se há registros
+    registros = dados_consumo.get("consumo_diario", [])
+    if not registros:
+        print("Nenhum consumo registrado")
+        return
+
+    # Empilha os últimos 7 registros
+    pilha = []
+    for registro in registros[-7:]:  # garante no máximo 7 dias
+        pilha.append(registro)
+
+    print("Consumo dos últimos 7 dias (mais recente primeiro):")
+    # Desempilha para exibir do último para o primeiro
+    while pilha:
+        registro = pilha.pop()
+        data = registro.get("data", "Data não disponível")
+        consumo = registro.get("consumo", {})
+        print(f"Data: {data}")
+        for insumo, quantidade in consumo.items():
+            print(f"  - {insumo}: {quantidade}")
+
+    input("Pressione Enter para continuar...")
+
+        
 
 
 def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
@@ -53,3 +81,13 @@ def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
         fila_consumo = dados_consumo["consumo_diario"]
         while len(fila_consumo) > limite: #FIFO
             fila_consumo.pop(0) # Remove o registro mais antigo
+
+
+def ordenar_fila_consumo_por_data(fila_consumo: list) -> None:
+    """Ordena a fila de consumo por data (mais antigo primeiro - mantendo FIFO)"""
+    # Ordena por data (mais antigo primeiro para manter a lógica FIFO)
+    fila_consumo.sort(key=lambda x: datetime.strptime(x["data"], "%d/%m/%Y"))
+
+def converter_data_para_objeto(data_str: str) -> datetime:
+    """Converte string de data no formato DD/MM/AAAA para objeto datetime"""
+    return datetime.strptime(data_str, "%d/%m/%Y")
