@@ -31,24 +31,24 @@ binária**, e **algoritmos de ordenação**.
 ## 🚀 Funcionalidades
 
 -   **Gestão de Estoque**: Controle completo de insumos por categorias
-    (coleta de sangue, urina, fezes e materiais gerais)\
+    (coleta de sangue, urina, fezes e materiais gerais)
 -   **Registro de Consumo Diário**: Armazenamento dos consumos dos
-    últimos 7 dias\
+    últimos 7 dias
 -   **Sistema de Login**: Dois níveis de acesso (Administrador e
-    Funcionário)\
+    Funcionário)
 -   **Geração Automática de Dados**: Registros aleatórios de consumo
-    para simulação\
--   **Relatórios e Alertas**: Notificações de estoque baixo e alto\
--   **Busca Eficiente**: Implementação de busca binária e sequencial\
+    para simulação
+-   **Relatórios e Alertas**: Notificações de estoque baixo e alto
+-   **Busca Eficiente**: Implementação de busca binária e sequencial
 -   **Ordenação**: Algoritmo **Merge Sort** para organização dos dados
 
 ------------------------------------------------------------------------
 
 ## 🛠️ Tecnologias Utilizadas
 
--   **Python 3.8+**\
--   **JSON** para armazenamento de dados\
--   **Faker** para geração de dados aleatórios\
+-   **Python 3.8+**
+-   **JSON** para armazenamento de dados
+-   **Faker** para geração de dados aleatórios
 -   **Threading** para execução de processos em paralelo
 
 ------------------------------------------------------------------------
@@ -57,7 +57,7 @@ binária**, e **algoritmos de ordenação**.
 
 ### Pré-requisitos
 
--   Python 3.8 ou superior instalado\
+-   Python 3.8 ou superior instalado
 -   Gerenciador de pacotes `pip`
 
 ### Passos para instalação
@@ -82,7 +82,7 @@ python menu.py
 
 ### Logins de teste
 
--   **Administrador**: usuário: `teste`, senha: `teste`\
+-   **Administrador**: usuário: `teste`, senha: `teste`
 -   **Funcionário**: usuário: `teste1`, senha: `teste1`
 
 ------------------------------------------------------------------------
@@ -92,24 +92,24 @@ python menu.py
 ### Menu Principal
 
 Ao executar o sistema, você terá acesso ao menu principal com três
-opções:\
-1. Acessar como Administrador\
-2. Acessar como Funcionário\
+opções:
+1. Acessar como Administrador
+2. Acessar como Funcionário
 3. Sair
 
 ### Funcionalidades do Administrador
 
--   Cadastrar novos funcionários\
--   Listar todos os funcionários\
--   Buscar funcionário por nome (busca sequencial)\
--   Checar estoque completo\
--   Buscar produto no estoque (busca binária)\
+-   Cadastrar novos funcionários
+-   Listar todos os funcionários
+-   Buscar funcionário por nome (busca sequencial)
+-   Checar estoque completo
+-   Buscar produto no estoque (busca binária)
 -   Ver situação do estoque (alertas de baixo/alto estoque)
 
 ### Funcionalidades do Funcionário
 
--   Checar estoque\
--   Adicionar produtos ao estoque\
+-   Checar estoque
+-   Adicionar produtos ao estoque
 -   Remover produtos do estoque (registrando consumo)
 
 ------------------------------------------------------------------------
@@ -117,10 +117,10 @@ opções:\
 ## ⚙️ Geração Automática de Dados
 
 O sistema possui uma **thread em segundo plano** que gera registros
-aleatórios de consumo a cada 5 segundos, incluindo:\
-- Datas aleatórias dos últimos 7 dias\
-- Produtos selecionados aleatoriamente\
-- Quantidades aleatórias entre 100-500 unidades\
+aleatórios de consumo a cada 5 segundos, incluindo:
+- Datas aleatórias dos últimos 7 dias
+- Produtos selecionados aleatoriamente
+- Quantidades aleatórias entre 100-500 unidades
 - Tipo de registro (adicionar/remover) baseado no estoque atual
 
 ------------------------------------------------------------------------
@@ -227,29 +227,29 @@ sistema_estoque/
 
 ### Diagrama de Casos de Uso
 
-O sistema implementa todos os casos de uso essenciais:\
-- Login de usuários (Administrador e Funcionário)\
-- Gestão de funcionários (apenas Administrador)\
-- Consulta de estoque\
-- Registro de entrada/saída de insumos\
+O sistema implementa todos os casos de uso essenciais:
+- Login de usuários (Administrador e Funcionário)
+- Gestão de funcionários (apenas Administrador)
+- Consulta de estoque
+- Registro de entrada/saída de insumos
 - Geração de relatórios de consumo
 
 ### Backlog do Produto
 
-Todas as funcionalidades prioritárias foram implementadas:\
-- Sistema de autenticação com dois níveis de acesso\
-- Controle de estoque com categorias específicas\
-- Registro de movimentações (entrada/saída)\
-- Alertas de estoque baixo e alto\
-- Geração de relatórios de consumo\
+Todas as funcionalidades prioritárias foram implementadas:
+- Sistema de autenticação com dois níveis de acesso
+- Controle de estoque com categorias específicas
+- Registro de movimentações (entrada/saída)
+- Alertas de estoque baixo e alto
+- Geração de relatórios de consumo
 - Interface de linha de comando intuitiva
 
 ### Estruturas de Dados e Algoritmos
 
--   **Fila**: Gestão do consumo diário (últimos 7 dias)\
--   **Busca Sequencial**: Para encontrar funcionários por nome\
--   **Busca Binária**: Para localizar produtos no estoque\
--   **Merge Sort**: Para ordenação de insumos por prioridade\
+-   **Fila**: Gestão do consumo diário (últimos 7 dias)
+-   **Busca Sequencial**: Para encontrar funcionários por nome
+-   **Busca Binária**: Para localizar produtos no estoque
+-   **Merge Sort**: Para ordenação de insumos por prioridade
 -   **Programação Dinâmica**: Geração de registros aleatórios com base
     no estado atual do estoque
 
@@ -265,21 +265,21 @@ operações.
 
 ### Consultando um produto no estoque:
 
-1.  Acesse como Administrador ou Funcionário\
-2.  Selecione "Buscar Produto no Estoque"\
-3.  Digite o nome do produto (ex: "agulhas")\
+1.  Acesse como Administrador ou Funcionário
+2.  Selecione "Buscar Produto no Estoque"
+3.  Digite o nome do produto (ex: "agulhas")
 4.  O sistema retornará a categoria e quantidade disponível
 
 ### Adicionando produtos ao estoque:
 
-1.  Acesse como Funcionário\
-2.  Selecione "Adicionar Produto"\
-3.  Escolha a categoria e o produto\
-4.  Informe a quantidade a ser adicionada\
+1.  Acesse como Funcionário
+2.  Selecione "Adicionar Produto"
+3.  Escolha a categoria e o produto
+4.  Informe a quantidade a ser adicionada
 5.  O sistema atualizará o estoque e registrará a movimentação
 
 ### Verificando alertas de estoque:
 
--   Acesse como Administrador\
+-   Acesse como Administrador
 -   O sistema exibirá automaticamente alertas de itens com estoque
     **baixo (\<100 unidades)** ou **alto (\>500 unidades)**
