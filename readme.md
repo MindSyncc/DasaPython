@@ -1,4 +1,13 @@
 Sistema de Controle de Estoque e Consumo Diário - DASA
+
+GRUPO MindSync
+Integrantes:
+Juan Fuentes Rufino - RM557673 - 2ESPV
+Pedro Henrique Silva Batista - RM558137 - 2ESPV
+Heloísa Fleury Jardim - RM556378 - 2ESPV
+Fernando Carlos Colque Huaranca - RM558095 - 2ESPI
+Julia Carolina Ferreira Silva - RM558896 - 2ESPI
+
 📋 Introdução
 Este projeto é um sistema de controle de estoque e consumo diário de insumos desenvolvido para a Sprint 3 do Challenge 2025 - 2º Semestre da FIAP em parceria com a DASA. O sistema simula o gerenciamento de insumos médicos em uma unidade de coleta de exames, permitindo o registro de entradas e saídas, controle de consumo diário e geração de relatórios.
 
