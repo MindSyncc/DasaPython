@@ -1,199 +1,240 @@
-📋 Sistema de Controle de Estoque - DASA
-📖 Visão Geral
-Sistema de controle de estoque desenvolvido para laboratórios DASA (Diagnósticos da América), especializado no gerenciamento de insumos médicos para coleta de materiais biológicos. A solução oferece controle em tempo real do estoque com alertas inteligentes para situações críticas.
+Sistema de Controle de Estoque e Consumo Diário - DASA
+📋 Introdução
+Este projeto é um sistema de controle de estoque e consumo diário de insumos desenvolvido para a Sprint 3 do Challenge 2025 - 2º Semestre da FIAP em parceria com a DASA. O sistema simula o gerenciamento de insumos médicos em uma unidade de coleta de exames, permitindo o registro de entradas e saídas, controle de consumo diário e geração de relatórios.
 
-🎯 Objetivo
-Melhorar a gestão de insumos médicos essenciais, prevenindo tanto a falta quanto o excesso de produtos através de um sistema eficiente com atualizações em tempo real.
+O sistema foi desenvolvido em Python com armazenamento em arquivos JSON, implementando diversas estruturas de dados e algoritmos conforme exigido na Sprint 3, incluindo filas, pilhas, busca sequencial e binária, e algoritmos de ordenação.
 
-👥 Equipe
-Fernando Carlos Colque Huaranca - rm558095
+🚀 Funcionalidades
+Gestão de Estoque: Controle completo de insumos por categorias (coleta de sangue, urina, fezes e materiais gerais)
 
-Heloísa Fleury Jardim - rm556378 - 2ESPV
+Registro de Consumo Diário: Armazenamento dos consumos dos últimos 7 dias
 
-Juan Fuentes Rufino - rm557673
+Sistema de Login: Dois níveis de acesso (Administrador e Funcionário)
 
-Julia Carolina Ferreira Silva - rm558896
+Geração Automática de Dados: Registros aleatórios de consumo para simulação
 
-Pedro Batista - rm558137
+Relatórios e Alertas: Notificações de estoque baixo e alto
 
-⚙️ Funcionalidades
-🔐 Sistema de Autenticação
-Login com usuário e senha
+Busca Eficiente: Implementação de busca binária e sequencial
 
-Dois perfis de acesso: Administrador e Funcionário
+Ordenação: Algoritmos Merge Sort para organização dos dados
 
-Controle de permissões por cargo
+🛠️ Tecnologias Utilizadas
+Python 3.8+
 
-📦 Gestão de Estoque
-✅ Registro de entrada e saída de insumos
+JSON para armazenamento de dados
 
-✅ Controle por categorias organizadas
+Faker para geração de dados aleatórios
 
-✅ Sistema de alertas para estoque baixo/alto
+Threading para execução de processos em paralelo
 
-✅ Busca eficiente de produtos
-
-✅ Histórico completo de movimentações
-
-👥 Administração
-✅ Cadastro de novos funcionários
-
-✅ Controle de acesso hierárquico
-
-✅ Prevenção contra duplicidade de registros
-
-📊 Relatórios e Monitoramento
-✅ Situação do estoque em tempo real
-
-✅ Consumo diário de insumos
-
-✅ Notificações automáticas
-
-🏗️ Arquitetura do Sistema
-📋 Estrutura de Arquivos
-text
-sistema_estoque/
-├── menu.py                 # Menu principal do sistema
-├── funcoes_gerais.py       # Funções utilitárias gerais
-├── funcoes_estoque.py      # Funções de gestão de estoque
-├── funcoes_funcionario.py  # Funções de gestão de usuários
-├── funcoes_consumo.py      # Funções de controle de consumo
-├── estoque.json           # Dados de estoque atual
-├── funcionarios.json      # Base de usuários cadastrados
-├── registros.json         # Histórico de movimentações
-├── consumo_diario.json    # Registro de consumo por data
-└── situacao_estoque.json  # Status atual dos itens
-🧮 Algoritmos Implementados
-Algoritmo	Complexidade	Localização	Status
-Busca Binária	O(log n)	funcoes_gerais.py	✅ Implementado
-Busca Sequencial	O(n)	funcoes_gerais.py	✅ Implementado
-Merge Sort	O(n log n)	funcoes_gerais.py	✅ Implementado
-Fila (FIFO)	O(1) para remoção	funcoes_consumo.py	✅ Implementado
-🚀 Como Executar
+📦 Instalação e Execução
 Pré-requisitos
 Python 3.8 ou superior instalado
 
-Bibliotecas: Faker (instalável via pip)
+Gerenciador de pacotes pip
 
-Instalação
+Passos para instalação
+Clone ou baixe os arquivos do projeto
+
+Instale as dependências:
+
 bash
-# Clone o repositório ou copie os arquivos
-git clone <repositorio>
-
-# Instale as dependências (se necessário)
 pip install faker
+Execute o sistema:
 
-# Execute o sistema
+bash
 python menu.py
-🔐 Credenciais de Acesso
-Administrador:
+Logins de teste
+Administrador: usuário: teste, senha: teste
 
-Usuário: teste
+Funcionário: usuário: teste1, senha: teste1
 
-Senha: teste
+🎯 Como Usar o Sistema
+Menu Principal
+Ao executar o sistema, você terá acesso ao menu principal com três opções:
 
-Funcionário:
+Acessar como Administrador
 
-Usuário: teste1
+Acessar como Funcionário
 
-Senha: teste1
+Sair
 
-📋 Categorias de Produtos
-🩸 Coleta de Sangue
-Agulhas, Gazes, Seringas, Algodão, Tubos de Transporte
+Funcionalidades do Administrador
+Cadastrar novos funcionários
 
-💧 Coleta de Urina
-Frascos Estéreis, Frascos de Urina 24h, Copos Coletores
+Listar todos os funcionários
 
-💩 Coleta de Fezes
-Frascos Coletores, Espátulas Descartáveis, Sacos Plásticos
+Buscar funcionário por nome (busca sequencial)
 
-🧼 Materiais Gerais
-Máscaras Cirúrgicas, Propé, Toucas Descartáveis, Sabonete Líquido, Papel Toalha, Etiquetas Identificadoras, Luvas Descartáveis
+Checar estoque completo
 
-⚠️ Sistema de Alertas
-🔴 Estoque Baixo: Abaixo de 100 unidades
+Buscar produto no estoque (busca binária)
 
-🟢 Estoque Alto: Acima de 500 unidades
+Ver situação do estoque (alertas de baixo/alto estoque)
 
-🟡 Estoque Normal: Entre 100 e 500 unidades
+Funcionalidades do Funcionário
+Checar estoque
 
-🔄 Fluxo de Trabalho
-Login → Autenticação no sistema
+Adicionar produtos ao estoque
 
-Menu Principal → Acesso conforme perfil
+Remover produtos do estoque (registrando consumo)
 
-Gestão de Estoque → Adição/remoção de itens
+Geração Automática de Dados
+O sistema possui uma thread em segundo plano que gera registros aleatórios de consumo a cada 5 segundos, incluindo:
 
-Registro Automático → Histórico de movimentações
+Datas aleatórias dos últimos 7 dias
 
-Atualização em Tempo Real → Situação do estoque
+Produtos selecionados aleatoriamente
 
-Alertas → Notificações de estoque crítico
+Quantidades aleatórias entre 100-500 unidades
 
-📊 Exemplo de Uso
+Tipo de registro (adicionar/remover) baseado no estoque atual
+
+📊 Estruturas de Dados Implementadas
+1. Fila (Consumo Diário)
+O sistema implementa uma fila FIFO (First-In, First-Out) para gerenciar o consumo diário, mantendo apenas os registros dos últimos 7 dias:
+
 python
-# 1. Login como funcionário
-# 2. Navegar até "Adicionar Produto"
-# 3. Selecionar categoria: "coleta_sangue"
-# 4. Selecionar produto: "agulhas"
-# 5. Informar quantidade: 200
-# 6. Sistema atualiza estoque automaticamente
-# 7. Registro é salvo no histórico
-🛠️ Tecnologias Utilizadas
-Linguagem: Python 3.8+
+def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
+    '''Limitar o uso do arquivo consumo_diario.json para os últimos 7 dias.'''
+    if "consumo_diario" in dados_consumo:
+        fila_consumo = dados_consumo["consumo_diario"]
+        while len(fila_consumo) > limite: #FIFO
+            fila_consumo.pop(0) # Remove o registro mais antigo
+2. Busca Sequencial e Binária
+Implementadas para consultas eficientes no sistema:
 
-Armazenamento: JSON files
+Busca Binária (Complexidade: O(log n)):
 
-Interface: CLI (Command Line Interface)
+python
+def busca_binaria(lista, alvo):
+    '''Realiza uma busca binária em uma lista ordenada.'''
+    esquerda, direita = 0, len(lista) - 1
+    while esquerda <= direita:
+        meio = (esquerda + direita) // 2
+        if lista[meio] == alvo:
+            return meio
+        elif lista[meio] < alvo:
+            esquerda = meio + 1
+        else:
+            direita = meio - 1
+    return -1
+Busca Sequencial (Complexidade: O(n)):
 
-Autenticação: Sistema próprio de usuários/senhas
+python
+def busca_sequencial(lista, alvo):
+    '''Realiza uma busca sequencial em uma lista.'''
+    for i in range(len(lista)):
+        if lista[i] == alvo:
+            return i
+    return -1
+3. Algoritmos de Ordenação
+Merge Sort (Complexidade: O(n log n)):
 
-Data e Hora: Biblioteca datetime nativa
+python
+def merge_sort(lista):
+    '''Ordena uma lista usando o algoritmo merge sort.'''
+    if len(lista) <= 1:
+        return lista
+    meio = len(lista) // 2
+    esquerda = merge_sort(lista[:meio])
+    direita = merge_sort(lista[meio:])
+    resultado = []
+    i = j = 0
+    while i < len(esquerda) and j < len(direita):
+        if esquerda[i] < direita[j]:
+            resultado.append(esquerda[i])
+            i += 1
+        else:
+            resultado.append(direita[j])
+            j += 1
+    while i < len(esquerda):
+        resultado.append(esquerda[i])
+        i += 1
+    while j < len(direita):
+        resultado.append(direita[j])
+        j += 1
+    return resultado
+📁 Estrutura de Arquivos
+text
+sistema_estoque/
+├── consumo_diario.json      # Registros de consumo dos últimos 7 dias
+├── estoque.json            # Estoque atual de todos os insumos
+├── funcionarios.json       # Cadastro de funcionários
+├── registros.json          # Histórico completo de movimentações
+├── situacao_estoque.json   # Status de cada item (baixo/normal/alto)
+├── menu.py                 # Menu principal do sistema
+├── funcoes_consumo.py      # Funções relacionadas ao consumo
+├── funcoes_estoque.py      # Funções de gestão de estoque
+├── funcoes_funcionario.py  # Funções de gestão de funcionários
+├── funcoes_gerais.py       # Funções auxiliares e algoritmos
+└── README.md               # Este arquivo
+⚙️ Requisitos Atendidos (Sprint 3)
+Diagrama de Casos de Uso
+O sistema implementa todos os casos de uso essenciais:
 
-📈 Status do Projeto
-✅ Funcionalidades Implementadas
-Sistema de autenticação com dois perfis
+Login de usuários (Administrador e Funcionário)
 
-CRUD completo de estoque
+Gestão de funcionários (apenas Administrador)
 
-Sistema de alertas de estoque
+Consulta de estoque
 
-Histórico de movimentações
+Registro de entrada/saída de insumos
 
-Busca binária e sequencial
+Geração de relatórios de consumo
 
-Algoritmo de ordenação Merge Sort
+Backlog do Produto
+Todas as funcionalidades prioritárias foram implementadas:
 
-Estrutura de dados Fila (FIFO)
+Sistema de autenticação com dois níveis de acesso
 
-Consumo diário com limite automático
+Controle de estoque com categorias específicas
 
-Interface intuitiva em português
+Registro de movimentações (entrada/saída)
 
-📋 Requisitos Pendentes
-Implementação de Quick Sort
+Alertas de estoque baixo e alto
 
-Implementação de estrutura de Pilha
+Geração de relatórios de consumo
 
-Melhorias na documentação de funções
+Interface de linha de comando intuitiva
 
-Sistema de backup automático
+Estruturas de Dados e Algoritmos
+Fila: Gestão do consumo diário (últimos 7 dias)
 
-Relatórios estatísticos avançados
+Busca Sequencial: Para encontrar funcionários por nome
 
-🐛 Solução de Problemas
-Erro Comum: Módulo não encontrado
-bash
-# Instale o Faker se necessário
-pip install faker
-Erro Comum: Arquivo JSON corrompido
-Verifique se os arquivos JSON estão com formatação válida
+Busca Binária: Para localizar produtos no estoque
 
-Execute o sistema novamente para regenerar arquivos se necessário
+Merge Sort: Para ordenação de insumos por prioridade
 
-📞 Suporte
-Para dúvidas técnicas ou problemas de implementação, entre em contato com a equipe de desenvolvimento através dos emails institucionais.
+Programação Dinâmica: Geração de registros aleatórios com base no estado atual do estoque
 
-📄 Licença
-Este projeto é destinado para fins educacionais como parte do curso de Ciência da Computação.
+Protótipo
+O sistema oferece uma interface de linha de comando completa e intuitiva, com menus hierárquicos e feedback visual para todas as operações.
+
+📈 Exemplos de Uso
+Consultando um produto no estoque:
+Acesse como Administrador ou Funcionário
+
+Selecione "Buscar Produto no Estoque"
+
+Digite o nome do produto (ex: "agulhas")
+
+O sistema retornará a categoria e quantidade disponível
+
+Adicionando produtos ao estoque:
+Acesse como Funcionário
+
+Selecione "Adicionar Produto"
+
+Escolha a categoria e o produto
+
+Informe a quantidade a ser adicionada
+
+O sistema atualizará o estoque e registrará a movimentação
+
+Verificando alertas de estoque:
+Acesse como Administrador
+
+O sistema exibirá automaticamente alertas de itens com estoque baixo (<100 unidades) ou alto (>500 unidades)

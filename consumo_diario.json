@@ -9,10 +9,14 @@
         {
             "data": "14/09/2025",
             "materiais_gerais": {
-                "luvas_descartaveis": 273
+                "luvas_descartaveis": 273,
+                "toucas_descartaveis": 312
             },
             "coleta_fezes": {
                 "espatulas_descartaveis": 491
+            },
+            "coleta_urina": {
+                "frascos_urinas_24h": 489
             }
         },
         {
@@ -22,6 +26,12 @@
             },
             "coleta_fezes": {
                 "sacos_plasticos": 451
+            },
+            "coleta_urina": {
+                "copos_coletores": 211
+            },
+            "materiais_gerais": {
+                "prope": 294
             }
         },
         {
@@ -55,6 +65,9 @@
             },
             "materiais_gerais": {
                 "toucas_descartaveis": 271
+            },
+            "coleta_urina": {
+                "frascos_estereis": 239
             }
         },
         {

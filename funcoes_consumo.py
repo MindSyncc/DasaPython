@@ -44,8 +44,8 @@ def organizar_insumos_por_consumo() -> dict:
 
 def checar_consumo_7_dias() -> None:
     """
-    Checa o registro dos últimos 7 dias de insumos e exibe do mais recente
-    para o mais antigo, usando uma pilha.
+    Checa o registro dos últimos 7 dias de insumos e exibe do mais antigo
+    para o mais recente, usando uma pilha.
     """
     dados_consumo = carregar_dados('consumo_diario.json')
 
@@ -53,28 +53,49 @@ def checar_consumo_7_dias() -> None:
     registros = dados_consumo.get("consumo_diario", [])
     if not registros:
         print("Nenhum consumo registrado")
+        input("Pressione Enter para continuar...")
         return
 
-    # Empilha os últimos 7 registros
+    # Ordena os registros por data (mais antigo primeiro)
+    registros_ordenados = sorted(registros, 
+                               key=lambda x: datetime.strptime(x["data"], "%d/%m/%Y"))
+    
+    # Pega os últimos 7 registros e empilha (o mais recente fica no topo)
     pilha = []
-    for registro in registros[-7:]:  # garante no máximo 7 dias
+    for registro in registros_ordenados[-7:]:  # Pega os 7 mais recentes
         pilha.append(registro)
+    
+    print("Consumo dos últimos 7 dias (mais recente primeiro - usando pilha):")
+    print("=" * 60)
+    
+    if not pilha:
+        print("Nenhum consumo registrado nos últimos 7 dias")
+    else:
+        # Desempilha (LIFO - Last In First Out)
+        while pilha:
+            registro = pilha.pop()  # Remove do topo (mais recente)
+            data = registro.get("data", "Data não disponível")
+            print(f"\nData: {data}")
+            print("-" * 30)
+            
+            # Mostra os consumos
+            tem_consumo = False
+            for chave, valor in registro.items():
+                if chave != "data":
+                    tem_consumo = True
+                    if isinstance(valor, dict):
+                        print(f"  {chave}:")
+                        for item, quantidade in valor.items():
+                            print(f"    - {item}: {quantidade}")
+                    else:
+                        print(f"  {chave}: {valor}")
+            
+            if not tem_consumo:
+                print("  Nenhum consumo registrado neste dia")
 
-    print("Consumo dos últimos 7 dias (mais recente primeiro):")
-    # Desempilha para exibir do último para o primeiro
-    while pilha:
-        registro = pilha.pop()
-        data = registro.get("data", "Data não disponível")
-        consumo = registro.get("consumo", {})
-        print(f"Data: {data}")
-        for insumo, quantidade in consumo.items():
-            print(f"  - {insumo}: {quantidade}")
-
-    input("Pressione Enter para continuar...")
+    input("\nPressione Enter para continuar...")
 
         
-
-
 def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
     '''Limitar o uso do arquivo consumo_diario.json para os últimos 7 dias.'''
     if "consumo_diario" in dados_consumo:
