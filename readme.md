@@ -3,10 +3,10 @@
 ## 👥 Grupo MindSync
 
 **Integrantes:**\
-- Juan Fuentes Rufino - RM557673 - 2ESPV\
-- Pedro Henrique Silva Batista - RM558137 - 2ESPV\
-- Heloísa Fleury Jardim - RM556378 - 2ESPV\
-- Fernando Carlos Colque Huaranca - RM558095 - 2ESPI\
+- Juan Fuentes Rufino - RM557673 - 2ESPV
+- Pedro Henrique Silva Batista - RM558137 - 2ESPV
+- Heloísa Fleury Jardim - RM556378 - 2ESPV
+- Fernando Carlos Colque Huaranca - RM558095 - 2ESPI
 - Julia Carolina Ferreira Silva - RM558896 - 2ESPI
 
 ------------------------------------------------------------------------
