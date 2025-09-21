@@ -2,7 +2,7 @@
 
 ## 👥 Grupo MindSync
 
-**Integrantes:**\
+**Integrantes:**
 - Juan Fuentes Rufino - RM557673 - 2ESPV
 - Pedro Henrique Silva Batista - RM558137 - 2ESPV
 - Heloísa Fleury Jardim - RM556378 - 2ESPV
