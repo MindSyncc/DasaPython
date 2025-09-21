@@ -1,140 +1,249 @@
-Sistema de Controle de Estoque - DASA (Simulação)
+Sistema de Controle de Estoque e Consumo Diário - DASA
 
-INTEGRANTES:
-Fernando Carlos Colque Huaranca - rm558095
+GRUPO MindSync
+Integrantes:
+Juan Fuentes Rufino - RM557673 - 2ESPV
+Pedro Henrique Silva Batista - RM558137 - 2ESPV
+Heloísa Fleury Jardim - RM556378 - 2ESPV
+Fernando Carlos Colque Huaranca - RM558095 - 2ESPI
+Julia Carolina Ferreira Silva - RM558896 - 2ESPI
 
-Heloísa Fleury Jardim - rm556378 - 2ESPV
+📋 Introdução
+Este projeto é um sistema de controle de estoque e consumo diário de insumos desenvolvido para a Sprint 3 do Challenge 2025 - 2º Semestre da FIAP em parceria com a DASA. O sistema simula o gerenciamento de insumos médicos em uma unidade de coleta de exames, permitindo o registro de entradas e saídas, controle de consumo diário e geração de relatórios.
 
-Juan Fuentes Rufino - rm557673
+O sistema foi desenvolvido em Python com armazenamento em arquivos JSON, implementando diversas estruturas de dados e algoritmos conforme exigido na Sprint 3, incluindo filas, pilhas, busca sequencial e binária, e algoritmos de ordenação.
 
-Julia Carolina Ferreira Silva - rm558896
+🚀 Funcionalidades
+Gestão de Estoque: Controle completo de insumos por categorias (coleta de sangue, urina, fezes e materiais gerais)
 
-Pedro Batista - rm558137
+Registro de Consumo Diário: Armazenamento dos consumos dos últimos 7 dias
 
- Sobre o Projeto
-Este projeto simula o controle de estoque de uma unidade da DASA (Diagnósticos da América), voltada para a coleta de sangue, urina e fezes. Diante de problemas reais de controle e comunicação interna enfrentados por laboratórios, esta solução foi idealizada para oferecer um sistema simples, funcional e com atualizações em tempo real do estoque.
+Sistema de Login: Dois níveis de acesso (Administrador e Funcionário)
 
-O objetivo é melhorar a visibilidade e gestão de insumos críticos usados no processo de coleta, garantindo que não faltem itens essenciais nem haja desperdício por excesso.
+Geração Automática de Dados: Registros aleatórios de consumo para simulação
 
- Como Funciona
-O sistema é executado via terminal (CLI - Command Line Interface), simulando dois tipos de usuários:
+Relatórios e Alertas: Notificações de estoque baixo e alto
 
-Administrador: pode cadastrar funcionários e consultar a situação do estoque.
+Busca Eficiente: Implementação de busca binária e sequencial
 
-Funcionário: pode registrar movimentações (entrada/saída) e consultar produtos.
+Ordenação: Algoritmos Merge Sort para organização dos dados
 
-#Logins testes
-Login do administrador:
-usuario: teste
-senha: teste
+🛠️ Tecnologias Utilizadas
+Python 3.8+
 
-Login do Usuario:
-usuario: teste1
-usuario: teste1
+JSON para armazenamento de dados
 
-As informações são armazenadas em arquivos JSON, simulando um banco de dados simples, e os dados do estoque são atualizados em tempo real após cada ação.
+Faker para geração de dados aleatórios
 
- Funcionalidades
- Acesso
-Login com usuário e senha
+Threading para execução de processos em paralelo
 
-Dois perfis de acesso: administrador e funcionário
+📦 Instalação e Execução
+Pré-requisitos
+Python 3.8 ou superior instalado
 
-🛒 Estoque
-Registro de entrada e saída de insumos
+Gerenciador de pacotes pip
 
-Controle por categoria (ex: "tubos", "luvas", "etiquetas")
+Passos para instalação
+Clone ou baixe os arquivos do projeto
 
-Situação do estoque (baixo, normal ou alto)
+Instale as dependências:
 
-Notificações para itens com estoque crítico
+bash
+pip install faker
+Execute o sistema:
 
-Busca binária para localizar rapidamente um item (eficiente com grandes volumes)
+bash
+python menu.py
+Logins de teste
+Administrador: usuário: teste, senha: teste
 
- Administração
-Cadastro de novos funcionários
+Funcionário: usuário: teste1, senha: teste1
 
-Registro com nome, senha, cargo e data de admissão
+🎯 Como Usar o Sistema
+Menu Principal
+Ao executar o sistema, você terá acesso ao menu principal com três opções:
 
-Proteção contra duplicidade de funcionários
+Acessar como Administrador
 
- Estrutura de Arquivos
-estoque.json: contém os insumos categorizados com suas quantidades
+Acessar como Funcionário
 
-funcionarios.json: armazena os usuários cadastrados
+Sair
 
-registros.json: histórico de movimentações no estoque
+Funcionalidades do Administrador
+Cadastrar novos funcionários
 
-situacao_estoque.json: status atual de cada item (baixo, normal, alto)
+Listar todos os funcionários
 
- Hipóteses e Dados Considerados
-Categorias como: tubos, luvas, seringas, frascos, etiquetas, etc.
+Buscar funcionário por nome (busca sequencial)
 
-Um estoque com variação entre 0 a 1000 unidades por item
+Checar estoque completo
 
-Faixas de alerta:
+Buscar produto no estoque (busca binária)
 
-🔴 Abaixo de 100 unidades: Baixo estoque
+Ver situação do estoque (alertas de baixo/alto estoque)
 
-🟢 Acima de 500 unidades: Estoque alto
+Funcionalidades do Funcionário
+Checar estoque
 
-Todos os insumos são identificados por nome (string) e quantidade (inteiro)
+Adicionar produtos ao estoque
 
-A entrada/saída é controlada manualmente por funcionários
+Remover produtos do estoque (registrando consumo)
 
-O sistema não está integrado com sensores nem bancos de dados externos
+Geração Automática de Dados
+O sistema possui uma thread em segundo plano que gera registros aleatórios de consumo a cada 5 segundos, incluindo:
 
- Estrutura Técnica
+Datas aleatórias dos últimos 7 dias
 
- Algoritmos Aplicados
-Busca Binária (O(log n)) para localizar itens rapidamente no estoque
+Produtos selecionados aleatoriamente
 
-Ordenação (O(n log n)) antes da busca para garantir eficiência
+Quantidades aleatórias entre 100-500 unidades
 
-Análises de Complexidade (O-grande) documentadas nas funções principais
+Tipo de registro (adicionar/remover) baseado no estoque atual
 
-(Opcional) Recursividade com memorização pode ser adicionada para fins didáticos
+📊 Estruturas de Dados Implementadas
+1. Fila (Consumo Diário)
+O sistema implementa uma fila FIFO (First-In, First-Out) para gerenciar o consumo diário, mantendo apenas os registros dos últimos 7 dias:
 
-Armazenamento
-Todos os dados são salvos em arquivos JSON
+python
+def consumo_diario_limpar(dados_consumo: dict, limite: int = 7) -> None:
+    '''Limitar o uso do arquivo consumo_diario.json para os últimos 7 dias.'''
+    if "consumo_diario" in dados_consumo:
+        fila_consumo = dados_consumo["consumo_diario"]
+        while len(fila_consumo) > limite: #FIFO
+            fila_consumo.pop(0) # Remove o registro mais antigo
+2. Busca Sequencial e Binária
+Implementadas para consultas eficientes no sistema:
 
-A leitura/escrita é feita de forma segura e com tratamento de erros
+Busca Binária (Complexidade: O(log n)):
 
- Normas e Boas Práticas
-Código documentado com docstrings em cada função
+python
+def busca_binaria(lista, alvo):
+    '''Realiza uma busca binária em uma lista ordenada.'''
+    esquerda, direita = 0, len(lista) - 1
+    while esquerda <= direita:
+        meio = (esquerda + direita) // 2
+        if lista[meio] == alvo:
+            return meio
+        elif lista[meio] < alvo:
+            esquerda = meio + 1
+        else:
+            direita = meio - 1
+    return -1
+Busca Sequencial (Complexidade: O(n)):
 
-Nomes de variáveis descritivos e em português
+python
+def busca_sequencial(lista, alvo):
+    '''Realiza uma busca sequencial em uma lista.'''
+    for i in range(len(lista)):
+        if lista[i] == alvo:
+            return i
+    return -1
+3. Algoritmos de Ordenação
+Merge Sort (Complexidade: O(n log n)):
 
-Separação clara entre lógica de negócios e interface do usuário (menu)
+python
+def merge_sort(lista):
+    '''Ordena uma lista usando o algoritmo merge sort.'''
+    if len(lista) <= 1:
+        return lista
+    meio = len(lista) // 2
+    esquerda = merge_sort(lista[:meio])
+    direita = merge_sort(lista[meio:])
+    resultado = []
+    i = j = 0
+    while i < len(esquerda) and j < len(direita):
+        if esquerda[i] < direita[j]:
+            resultado.append(esquerda[i])
+            i += 1
+        else:
+            resultado.append(direita[j])
+            j += 1
+    while i < len(esquerda):
+        resultado.append(esquerda[i])
+        i += 1
+    while j < len(direita):
+        resultado.append(direita[j])
+        j += 1
+    return resultado
+📁 Estrutura de Arquivos
+text
+sistema_estoque/
+├── consumo_diario.json      # Registros de consumo dos últimos 7 dias
+├── estoque.json            # Estoque atual de todos os insumos
+├── funcionarios.json       # Cadastro de funcionários
+├── registros.json          # Histórico completo de movimentações
+├── situacao_estoque.json   # Status de cada item (baixo/normal/alto)
+├── menu.py                 # Menu principal do sistema
+├── funcoes_consumo.py      # Funções relacionadas ao consumo
+├── funcoes_estoque.py      # Funções de gestão de estoque
+├── funcoes_funcionario.py  # Funções de gestão de funcionários
+├── funcoes_gerais.py       # Funções auxiliares e algoritmos
+└── README.md               # Este arquivo
+⚙️ Requisitos Atendidos (Sprint 3)
+Diagrama de Casos de Uso
+O sistema implementa todos os casos de uso essenciais:
 
-Comentários com análise de complexidade onde necessário
+Login de usuários (Administrador e Funcionário)
 
+Gestão de funcionários (apenas Administrador)
 
+Consulta de estoque
 
-Como Executar
+Registro de entrada/saída de insumos
 
-Certifique-se de ter o Python instalado (3.8+)
+Geração de relatórios de consumo
 
-Clone o projeto ou copie os arquivos .py e .json
+Backlog do Produto
+Todas as funcionalidades prioritárias foram implementadas:
 
+Sistema de autenticação com dois níveis de acesso
 
-Siga as instruções no terminal
+Controle de estoque com categorias específicas
 
-🧪 Exemplo de Uso
-Funcionário acessa o sistema
+Registro de movimentações (entrada/saída)
 
-Escolhe “Adicionar Produto”
+Alertas de estoque baixo e alto
 
-Digita: categoria = tubos, produto = tubo roxo, quantidade = 200
+Geração de relatórios de consumo
 
-Produto é registrado e estoque atualizado
+Interface de linha de comando intuitiva
 
-Se quantidade cair abaixo de 100, um alerta será exibido ao administrador
+Estruturas de Dados e Algoritmos
+Fila: Gestão do consumo diário (últimos 7 dias)
 
-Login do administrador:
-usuario: teste
-senha: teste
+Busca Sequencial: Para encontrar funcionários por nome
 
-Login do Usuario:
-usuario: teste1
-usuario: teste1
+Busca Binária: Para localizar produtos no estoque
+
+Merge Sort: Para ordenação de insumos por prioridade
+
+Programação Dinâmica: Geração de registros aleatórios com base no estado atual do estoque
+
+Protótipo
+O sistema oferece uma interface de linha de comando completa e intuitiva, com menus hierárquicos e feedback visual para todas as operações.
+
+📈 Exemplos de Uso
+Consultando um produto no estoque:
+Acesse como Administrador ou Funcionário
+
+Selecione "Buscar Produto no Estoque"
+
+Digite o nome do produto (ex: "agulhas")
+
+O sistema retornará a categoria e quantidade disponível
+
+Adicionando produtos ao estoque:
+Acesse como Funcionário
+
+Selecione "Adicionar Produto"
+
+Escolha a categoria e o produto
+
+Informe a quantidade a ser adicionada
+
+O sistema atualizará o estoque e registrará a movimentação
+
+Verificando alertas de estoque:
+Acesse como Administrador
+
+O sistema exibirá automaticamente alertas de itens com estoque baixo (<100 unidades) ou alto (>500 unidades)
