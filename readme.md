@@ -283,3 +283,29 @@ operações.
 -   Acesse como Administrador
 -   O sistema exibirá automaticamente alertas de itens com estoque
     **baixo (\<100 unidades)** ou **alto (\>500 unidades)**
+
+------------------------------------------------------------------------
+
+## 📈 Melhorias no Sistema
+
+### Funções Otimizadas
+
+-   Adição de funções recursivas
+-   Funções com estado, decisão e transição
+-   Funções recursivas voltadas a reposição otimizada
+-   Funções de teste que garantam o mesmo resultado
+
+### Métodos para calcular gastos durante a semana
+-   Adição de um json que mostra o valor de cada produto de estoque, dependendo do dia da semana
+-   Gasto do estoque por dia da semana(Mudar funções que aleatoriamente fazem gastos durante o dia)
+-   Json com cada dia da semana e seu gasto médio
+-   Custo total por pedido(função do frete junto a quantidade de pedido)
+-   Calcular custo do armazenamento
+-   Calcular custo da falta de produtos necessários no dia
+
+### Atualização projeto
+-   Atualização readme
+-   Atualização estrutura do projeto
+
+
+
