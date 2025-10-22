@@ -1354,5 +1354,29 @@
         "quantidade": 312,
         "data_registro": "14/09/2025 04:09:49",
         "tipo_registro": "remover"
+    },
+    "8380": {
+        "insumo": "seringas",
+        "quantidade": 332,
+        "data_registro": "19/10/2025 13:45:20",
+        "tipo_registro": "adicionar"
+    },
+    "8618": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 109,
+        "data_registro": "16/10/2025 13:45:47",
+        "tipo_registro": "adicionar"
+    },
+    "9282": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 324,
+        "data_registro": "15/10/2025 23:58:15",
+        "tipo_registro": "adicionar"
+    },
+    "6481": {
+        "insumo": "algodao",
+        "quantidade": 412,
+        "data_registro": "21/10/2025 06:02:42",
+        "tipo_registro": "adicionar"
     }
 }

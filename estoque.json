@@ -3,8 +3,8 @@
         "coleta_sangue": {
             "agulhas": 100,
             "gazes": 808,
-            "seringas": 311,
-            "algodao": 414,
+            "seringas": 643,
+            "algodao": 826,
             "tubos_transporte": 637
         },
         "coleta_urina": {
@@ -24,7 +24,7 @@
             "sabonete_liquido": 100,
             "papel_toalha": 684,
             "etiquetas_identificadoras": 582,
-            "luvas_descartaveis": 624
+            "luvas_descartaveis": 1057
         }
     }
 }
