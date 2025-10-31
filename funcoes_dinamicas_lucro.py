@@ -3,37 +3,34 @@ from datetime import datetime, timedelta
 import random
 
 # Cache global para memorização
-MEMO_DP = {}
+CACHE_GLOBAL = {}
 
 
 def limpar_memo():
     """Limpa o cache de memorização para nova execução"""
-    global MEMO_DP
-    MEMO_DP = {}
+    global CACHE_GLOBAL
+    CACHE_GLOBAL = {}
 
 
 def prever_demanda_insumos(dias=7):
     """Preve a demanda dos insumos baseada no consumo histórico"""
     consumo_diario = carregar_dados('consumo_diario.json')
-    registros = consumo_diario.get("consumo_diario", [])[-14:]  # Usamos as últimas 2 semanas
+    registros = consumo_diario.get("consumo_diario", [])[-14:]  #Consumo Histórico 14 dias
 
     previsoes = {}
 
-    # Coletamos dados históricos de consumo
+    #Coletando dados históricos de consumo
     for registro in registros:
         for categoria, itens in registro.items():
             if categoria == "data":
                 continue
-
             if categoria not in previsoes:
                 previsoes[categoria] = {}
-
             for item, quantidade in itens.items():
                 if item not in previsoes[categoria]:
                     previsoes[categoria][item] = []
                 previsoes[categoria][item].append(quantidade)
 
-    # Calculamos a média para previsão futura
     previsao_final = {}
     for categoria, itens in previsoes.items():
         previsao_final[categoria] = {}
@@ -42,7 +39,7 @@ def prever_demanda_insumos(dias=7):
                 media = sum(consumos) / len(consumos)
                 previsao_final[categoria][item] = [int(media)] * dias
             else:
-                # Valor padrão quando não há histórico
+                #Valor padrão quando não tem histórico
                 previsao_final[categoria][item] = [50] * dias
 
     return previsao_final
@@ -55,13 +52,12 @@ def dp_recursiva_estoque(dia, estoque_atual, demanda,
     Versão recursiva da programação dinâmica - abordagem Top-Down
     Esta função explora todas as possibilidades de forma recursiva
     """
-    # Caso base: quando chegamos ao final do período
     if dia >= len(demanda):
         return 0, 0
 
     demanda_dia = demanda[dia]
 
-    # Calculamos os custos do dia atual
+    #custos do dia atual
     if estoque_atual >= demanda_dia:
         custo_est_dia = (estoque_atual - demanda_dia) * custo_estoque
         custo_falta_dia = 0
@@ -71,28 +67,21 @@ def dp_recursiva_estoque(dia, estoque_atual, demanda,
         custo_falta_dia = (demanda_dia - estoque_atual) * custo_falta
         estoque_pos_consumo = 0
 
-    # Exploramos diferentes quantidades de pedido
     melhor_custo = float('inf')
     melhor_pedido = 0
-
     max_pedido = capacidade_max - estoque_pos_consumo
-    for pedido in range(0, max_pedido + 1, 100):  # Consideramos pedidos em lotes de 100
+
+    for pedido in range(0, max_pedido + 1, 100):  #Considerando pedidos em lotes de 100
         custo_pedido_dia = custo_pedido if pedido > 0 else 0
-
         novo_estoque = min(capacidade_max, estoque_pos_consumo + pedido)
-
-        # Chamada recursiva para o próximo dia
+        #Chamada recursiva para o próximo dia
         custo_futuro, _ = dp_recursiva_estoque(
             dia + 1, novo_estoque, demanda, custo_pedido, custo_estoque, custo_falta, capacidade_max
         )
-
-        # Calculamos o custo total desta decisão
         custo_total = custo_pedido_dia + custo_est_dia + custo_falta_dia + custo_futuro
-
         if custo_total < melhor_custo:
             melhor_custo = custo_total
             melhor_pedido = pedido
-
     return melhor_custo, melhor_pedido
 
 
@@ -102,19 +91,18 @@ def dp_memorizacao_estoque(dia, estoque_atual, demanda,
     """
     Versão com memorização - otimizamos a recursiva armazenando resultados
     """
-    global MEMO_DP
+    global CACHE_GLOBAL
 
     chave = (dia, estoque_atual)
-    if chave in MEMO_DP:
-        return MEMO_DP[chave]
+    if chave in CACHE_GLOBAL:
+        return CACHE_GLOBAL[chave]
 
-    # Caso base
     if dia >= len(demanda):
         return 0, 0
 
     demanda_dia = demanda[dia]
 
-    # Calculamos os custos do dia atual
+    #custos do dia atual
     if estoque_atual >= demanda_dia:
         custo_est_dia = (estoque_atual - demanda_dia) * custo_estoque
         custo_falta_dia = 0
@@ -126,25 +114,21 @@ def dp_memorizacao_estoque(dia, estoque_atual, demanda,
 
     melhor_custo = float('inf')
     melhor_pedido = 0
-
     max_pedido = capacidade_max - estoque_pos_consumo
+
     for pedido in range(0, max_pedido + 1, 100):
         custo_pedido_dia = custo_pedido if pedido > 0 else 0
-
         novo_estoque = min(capacidade_max, estoque_pos_consumo + pedido)
-
         custo_futuro, _ = dp_memorizacao_estoque(
             dia + 1, novo_estoque, demanda, custo_pedido, custo_estoque, custo_falta, capacidade_max
         )
-
         custo_total = custo_pedido_dia + custo_est_dia + custo_falta_dia + custo_futuro
-
         if custo_total < melhor_custo:
             melhor_custo = custo_total
             melhor_pedido = pedido
 
-    # Armazenamos o resultado no cache
-    MEMO_DP[chave] = (melhor_custo, melhor_pedido)
+    #Armazenando o resultado no cache
+    CACHE_GLOBAL[chave] = (melhor_custo, melhor_pedido)
     return melhor_custo, melhor_pedido
 
 
@@ -156,21 +140,18 @@ def dp_iterativa_estoque(demanda, estoque_inicial=0,
     Construímos a solução do menor subproblema para o maior
     """
     n_dias = len(demanda)
-
-    # Inicializamos as tabelas de programação dinâmica
+    #Inicializando as tabelas de programação dinâmica
     dp = [[float('inf')] * (capacidade_max + 1) for _ in range(n_dias + 1)]
     pedidos = [[0] * (capacidade_max + 1) for _ in range(n_dias + 1)]
 
-    # Caso base: no último dia não há custos futuros
     for estoque in range(capacidade_max + 1):
         dp[n_dias][estoque] = 0
 
-    # Preenchemos a tabela de trás para frente
+    # Preenchendo a tabela de trás para frente
     for dia in range(n_dias - 1, -1, -1):
         for estoque in range(capacidade_max + 1):
             demanda_dia = demanda[dia]
-
-            # Calculamos os custos para o estado atual
+            #custos para o estado atual
             if estoque >= demanda_dia:
                 custo_est_dia = (estoque - demanda_dia) * custo_estoque
                 custo_falta_dia = 0
@@ -182,24 +163,18 @@ def dp_iterativa_estoque(demanda, estoque_inicial=0,
 
             melhor_custo = float('inf')
             melhor_pedido = 0
-
             max_pedido = capacidade_max - estoque_pos_consumo
             for pedido in range(0, max_pedido + 1, 100):
                 custo_pedido_dia = custo_pedido if pedido > 0 else 0
-
                 novo_estoque = min(capacidade_max, estoque_pos_consumo + pedido)
                 custo_futuro = dp[dia + 1][novo_estoque]
-
                 custo_total = custo_pedido_dia + custo_est_dia + custo_falta_dia + custo_futuro
-
                 if custo_total < melhor_custo:
                     melhor_custo = custo_total
                     melhor_pedido = pedido
-
             dp[dia][estoque] = melhor_custo
             pedidos[dia][estoque] = melhor_pedido
 
-    # Reconstruímos a sequência ótima de pedidos
     sequencia_pedidos = []
     estoque_atual = min(estoque_inicial, capacidade_max)
 
@@ -207,8 +182,7 @@ def dp_iterativa_estoque(demanda, estoque_inicial=0,
         estoque_atual = min(estoque_atual, capacidade_max)
         pedido_otimo = pedidos[dia][estoque_atual]
         sequencia_pedidos.append(pedido_otimo)
-
-        # Atualizamos o estoque para o próximo dia
+        #Atualizando o estoque para o próximo dia
         demanda_dia = demanda[dia]
         if estoque_atual >= demanda_dia:
             estoque_atual = min(capacidade_max, estoque_atual - demanda_dia + pedido_otimo)
@@ -222,15 +196,14 @@ def verificar_consistencia_dp(demanda):
     """Verificamos se as três versões produzem os mesmos resultados"""
     limpar_memo()
 
-    # Calculamos com cada versão
+    #Cada versão programação dinâmica
     custo_rec, pedido_rec = dp_recursiva_estoque(0, 0, demanda)
     custo_mem, pedido_mem = dp_memorizacao_estoque(0, 0, demanda)
     custo_it, pedidos_it = dp_iterativa_estoque(demanda)
 
-    # Verificamos a consistência dos custos
+    #Verificando a consistência dos custos
     custos_consistentes = (abs(custo_rec - custo_mem) < 0.01 and
                            abs(custo_rec - custo_it) < 0.01)
-
     print("VERIFICACAO DE CONSISTENCIA")
     print("=" * 50)
     print(f"Recursiva:  R${custo_rec:.2f}, Primeiro pedido: {pedido_rec}")
@@ -238,12 +211,11 @@ def verificar_consistencia_dp(demanda):
     print(f"Iterativa:  R${custo_it:.2f}, Sequencia: {pedidos_it}")
     print(f"Resultados consistentes: {custos_consistentes}")
     print("=" * 50)
-
     return custos_consistentes
 
 
 def gerar_datas_recomendacao(dias=7):
-    """Geramos as datas para os próximos dias das recomendações"""
+    """Gerando as datas para os próximos dias das recomendações"""
     hoje = datetime.now()
     datas = []
     for i in range(dias):
@@ -269,9 +241,7 @@ def otimizar_reposicao_insumos():
     print(f"Periodo analisado: {resultados['periodo_analisado']}")
     print("=" * 60)
 
-    # Geramos datas para as recomendações
     datas = gerar_datas_recomendacao(7)
-
     for categoria, itens in previsoes.items():
         resultados["recomendacoes_por_categoria"][categoria] = {
             "itens": {},
@@ -288,16 +258,12 @@ def otimizar_reposicao_insumos():
         for item, demanda in itens.items():
             print(f"\n   Item: {item}")
             print(f"   Demanda prevista: {demanda}")
-
-            # Obtemos o estoque atual do item
             estoque_inicial = estoque_atual.get("insumos", {}).get(categoria, {}).get(item, 0)
             print(f"   Estoque atual: {estoque_inicial}")
-
-            # Calculamos a otimização com a versão iterativa
             try:
                 custo_otimo, pedidos_otimos = dp_iterativa_estoque(demanda, estoque_inicial)
 
-                # Criamos estrutura detalhada por dia
+                #Estrutura detalhada por dia
                 recomendacoes_detalhadas = []
                 for i, (data, pedido, demanda_dia) in enumerate(zip(datas, pedidos_otimos, demanda)):
                     acao = "PEDIDO URGENTE" if pedido > 0 and i == 0 else "PEDIDO" if pedido > 0 else "MANTER"
@@ -308,8 +274,6 @@ def otimizar_reposicao_insumos():
                         "demanda_prevista": demanda_dia,
                         "acao": acao
                     })
-
-                # Adicionamos ao resultado
                 resultados["recomendacoes_por_categoria"][categoria]["itens"][item] = {
                     'estoque_atual': estoque_inicial,
                     'demanda_prevista_7_dias': demanda,
@@ -321,13 +285,10 @@ def otimizar_reposicao_insumos():
                         'status': "URGENTE" if pedidos_otimos[0] > 0 else "NORMAL"
                     }
                 }
-
-                # Atualizamos o resumo da categoria
                 resultados["recomendacoes_por_categoria"][categoria]["resumo_categoria"]["total_reposicao_hoje"] += \
                 pedidos_otimos[0]
                 resultados["recomendacoes_por_categoria"][categoria]["resumo_categoria"][
                     "custo_total_previsto"] += custo_otimo
-
                 print(f"   Custo minimo: R${custo_otimo:.2f}")
                 print(f"   Recomendacoes:")
                 for rec in recomendacoes_detalhadas[:3]:  # Mostramos apenas 3 primeiros dias
@@ -336,7 +297,6 @@ def otimizar_reposicao_insumos():
                     print(f"      {rec['data']}: {rec['pedido_recomendado']} unidades {status}")
                 if len(recomendacoes_detalhadas) > 3:
                     print(f"      ... e mais {len(recomendacoes_detalhadas) - 3} dias")
-
             except Exception as e:
                 print(f"   Erro ao calcular otimizacao: {e}")
                 resultados["recomendacoes_por_categoria"][categoria]["itens"][item] = {
@@ -344,8 +304,6 @@ def otimizar_reposicao_insumos():
                     'estoque_atual': estoque_inicial,
                     'demanda_prevista': demanda
                 }
-
-    # Adicionamos resumo geral
     resultados["resumo_geral"] = {
         "total_categorias": len(resultados["recomendacoes_por_categoria"]),
         "total_itens_analisados": sum(
@@ -356,7 +314,7 @@ def otimizar_reposicao_insumos():
                                           resultados["recomendacoes_por_categoria"].values()), 2)
     }
 
-    # Verificamos consistência entre as versões
+    #Verificando consistência entre as versões
     if previsoes:
         primeira_categoria = list(previsoes.keys())[0]
         if primeira_categoria in previsoes and previsoes[primeira_categoria]:
@@ -364,7 +322,6 @@ def otimizar_reposicao_insumos():
             primeiro_item_demanda = previsoes[primeira_categoria][primeiro_item]
             print("\n" + "=" * 60)
             verificar_consistencia_dp(primeiro_item_demanda)
-
     return resultados
 
 
@@ -421,7 +378,6 @@ def menu_otimizacao_dp():
 
         elif opcao == '2':
             limpar_tela()
-            # Testamos com demanda de exemplo
             demanda_teste = []
             for i in range(7):
                 demanda_teste.append(random.randint(100,300))
