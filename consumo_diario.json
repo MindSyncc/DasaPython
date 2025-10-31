@@ -86,6 +86,85 @@
             "coleta_sangue": {
                 "gazes": 463
             }
+        },
+        {
+            "data": "24/10/2025",
+            "coleta_urina": {
+                "frascos_urinas_24h": 463,
+                "frascos_estereis": 327
+            },
+            "materiais_gerais": {
+                "luvas_descartaveis": 385
+            },
+            "coleta_fezes": {
+                "sacos_plasticos": 602,
+                "espatulas_descartaveis": 196
+            }
+        },
+        {
+            "data": "25/10/2025",
+            "coleta_urina": {
+                "frascos_urinas_24h": 330,
+                "frascos_estereis": 109
+            }
+        },
+        {
+            "data": "26/10/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 625
+            },
+            "materiais_gerais": {
+                "prope": 408
+            },
+            "coleta_sangue": {
+                "algodao": 243
+            }
+        },
+        {
+            "data": "27/10/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 311
+            },
+            "coleta_urina": {
+                "frascos_estereis": 194,
+                "frascos_urinas_24h": 299
+            }
+        },
+        {
+            "data": "28/10/2025",
+            "coleta_urina": {
+                "frascos_estereis": 293
+            },
+            "coleta_sangue": {
+                "tubos_transporte": 424
+            },
+            "materiais_gerais": {
+                "toucas_descartaveis": 391
+            }
+        },
+        {
+            "data": "29/10/2025",
+            "coleta_sangue": {
+                "gazes": 362,
+                "seringas": 396
+            },
+            "materiais_gerais": {
+                "luvas_descartaveis": 343
+            }
+        },
+        {
+            "data": "30/10/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 386,
+                "frascos_coletores": 247
+            },
+            "materiais_gerais": {
+                "prope": 394,
+                "etiquetas_identificadoras": 383
+            },
+            "coleta_urina": {
+                "copos_coletores": 379
+            }
         }
     ]
 }

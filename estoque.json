@@ -8,23 +8,23 @@
             "tubos_transporte": 637
         },
         "coleta_urina": {
-            "frascos_estereis": 1111,
-            "frascos_urinas_24h": 1272,
+            "frascos_estereis": 121,
+            "frascos_urinas_24h": 809,
             "copos_coletores": 804
         },
         "coleta_fezes": {
             "frascos_coletores": 362,
-            "espatulas_descartaveis": 1330,
+            "espatulas_descartaveis": 582,
             "sacos_plasticos": 691
         },
         "materiais_gerais": {
             "mascaras_cirurgicas": 100,
-            "prope": 393,
-            "toucas_descartaveis": 742,
+            "prope": 533,
+            "toucas_descartaveis": 900,
             "sabonete_liquido": 100,
-            "papel_toalha": 684,
-            "etiquetas_identificadoras": 582,
-            "luvas_descartaveis": 1057
+            "papel_toalha": 204,
+            "etiquetas_identificadoras": 542,
+            "luvas_descartaveis": 900
         }
     }
 }

@@ -1,6 +1,8 @@
+from funcoes_dinamicas_lucro import menu_otimizacao_dp
 from funcoes_estoque import *
 from funcoes_funcionario import *
 from funcoes_consumo import *
+import menu_teste
 import time
 import threading
 
@@ -58,7 +60,8 @@ def menu_administrador() -> None:
         print("5. Buscar Produto no Estoque")
         print("6. Situação do Estoque")
         print("7. Consumo diário dos 7 dias mais recentes")
-        print("8. Sair")
+        print("8. Acessar menu de testes de maximização de lucro e otimização de estoque/programa")
+        print("9. Sair")
         print("=" * 40)
 
         opcao = input("Escolha uma opção: ").strip()
@@ -86,6 +89,8 @@ def menu_administrador() -> None:
             case '7':
                 checar_consumo_7_dias()
             case '8':
+                menu_otimizacao_dp()
+            case '9':
                 print("Saindo do menu administrador...")
                 time.sleep(1)
                 break

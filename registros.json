@@ -1378,5 +1378,335 @@
         "quantidade": 412,
         "data_registro": "21/10/2025 06:02:42",
         "tipo_registro": "adicionar"
+    },
+    "2516": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 463,
+        "data_registro": "24/10/2025 19:48:34",
+        "tipo_registro": "remover"
+    },
+    "8976": {
+        "insumo": "prope",
+        "quantidade": 218,
+        "data_registro": "30/10/2025 08:58:32",
+        "tipo_registro": "adicionar"
+    },
+    "4697": {
+        "insumo": "toucas_descartaveis",
+        "quantidade": 409,
+        "data_registro": "30/10/2025 03:42:45",
+        "tipo_registro": "adicionar"
+    },
+    "2552": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 386,
+        "data_registro": "30/10/2025 06:57:04",
+        "tipo_registro": "remover"
+    },
+    "6080": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 362,
+        "data_registro": "26/10/2025 17:32:16",
+        "tipo_registro": "remover"
+    },
+    "2947": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 406,
+        "data_registro": "29/10/2025 08:11:28",
+        "tipo_registro": "adicionar"
+    },
+    "4421": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 174,
+        "data_registro": "26/10/2025 04:49:42",
+        "tipo_registro": "adicionar"
+    },
+    "2509": {
+        "insumo": "tubos_transporte",
+        "quantidade": 168,
+        "data_registro": "25/10/2025 02:01:03",
+        "tipo_registro": "adicionar"
+    },
+    "9784": {
+        "insumo": "frascos_estereis",
+        "quantidade": 293,
+        "data_registro": "28/10/2025 15:20:37",
+        "tipo_registro": "remover"
+    },
+    "9021": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 385,
+        "data_registro": "24/10/2025 03:57:01",
+        "tipo_registro": "remover"
+    },
+    "4955": {
+        "insumo": "gazes",
+        "quantidade": 362,
+        "data_registro": "29/10/2025 14:20:00",
+        "tipo_registro": "remover"
+    },
+    "8140": {
+        "insumo": "gazes",
+        "quantidade": 281,
+        "data_registro": "27/10/2025 15:42:56",
+        "tipo_registro": "adicionar"
+    },
+    "1574": {
+        "insumo": "tubos_transporte",
+        "quantidade": 424,
+        "data_registro": "28/10/2025 20:41:33",
+        "tipo_registro": "remover"
+    },
+    "2324": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 311,
+        "data_registro": "27/10/2025 11:57:43",
+        "tipo_registro": "remover"
+    },
+    "4738": {
+        "insumo": "frascos_estereis",
+        "quantidade": 453,
+        "data_registro": "24/10/2025 07:44:03",
+        "tipo_registro": "adicionar"
+    },
+    "1803": {
+        "insumo": "frascos_estereis",
+        "quantidade": 194,
+        "data_registro": "27/10/2025 03:52:29",
+        "tipo_registro": "remover"
+    },
+    "3337": {
+        "insumo": "prope",
+        "quantidade": 157,
+        "data_registro": "25/10/2025 06:42:12",
+        "tipo_registro": "adicionar"
+    },
+    "9800": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 343,
+        "data_registro": "29/10/2025 03:52:12",
+        "tipo_registro": "remover"
+    },
+    "7841": {
+        "insumo": "prope",
+        "quantidade": 350,
+        "data_registro": "29/10/2025 04:22:56",
+        "tipo_registro": "adicionar"
+    },
+    "9453": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 299,
+        "data_registro": "27/10/2025 07:08:05",
+        "tipo_registro": "remover"
+    },
+    "8483": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 217,
+        "data_registro": "29/10/2025 06:24:37",
+        "tipo_registro": "adicionar"
+    },
+    "3111": {
+        "insumo": "luvas_descartaveis",
+        "quantidade": 248,
+        "data_registro": "24/10/2025 14:53:55",
+        "tipo_registro": "adicionar"
+    },
+    "3722": {
+        "insumo": "algodao",
+        "quantidade": 326,
+        "data_registro": "27/10/2025 23:53:10",
+        "tipo_registro": "adicionar"
+    },
+    "3002": {
+        "insumo": "seringas",
+        "quantidade": 396,
+        "data_registro": "29/10/2025 03:00:36",
+        "tipo_registro": "remover"
+    },
+    "6802": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 282,
+        "data_registro": "29/10/2025 11:16:47",
+        "tipo_registro": "adicionar"
+    },
+    "3984": {
+        "insumo": "tubos_transporte",
+        "quantidade": 214,
+        "data_registro": "25/10/2025 16:17:06",
+        "tipo_registro": "adicionar"
+    },
+    "5557": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 176,
+        "data_registro": "24/10/2025 07:15:32",
+        "tipo_registro": "remover"
+    },
+    "2118": {
+        "insumo": "prope",
+        "quantidade": 408,
+        "data_registro": "26/10/2025 18:53:27",
+        "tipo_registro": "remover"
+    },
+    "3409": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 263,
+        "data_registro": "26/10/2025 21:22:28",
+        "tipo_registro": "remover"
+    },
+    "5516": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 217,
+        "data_registro": "26/10/2025 13:23:27",
+        "tipo_registro": "adicionar"
+    },
+    "3380": {
+        "insumo": "algodao",
+        "quantidade": 243,
+        "data_registro": "26/10/2025 15:49:20",
+        "tipo_registro": "remover"
+    },
+    "8433": {
+        "insumo": "toucas_descartaveis",
+        "quantidade": 391,
+        "data_registro": "28/10/2025 10:02:11",
+        "tipo_registro": "remover"
+    },
+    "3050": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 354,
+        "data_registro": "24/10/2025 11:30:52",
+        "tipo_registro": "adicionar"
+    },
+    "3370": {
+        "insumo": "sacos_plasticos",
+        "quantidade": 426,
+        "data_registro": "24/10/2025 15:44:06",
+        "tipo_registro": "remover"
+    },
+    "1089": {
+        "insumo": "agulhas",
+        "quantidade": 245,
+        "data_registro": "29/10/2025 04:34:25",
+        "tipo_registro": "adicionar"
+    },
+    "4191": {
+        "insumo": "frascos_estereis",
+        "quantidade": 327,
+        "data_registro": "24/10/2025 16:11:56",
+        "tipo_registro": "remover"
+    },
+    "2474": {
+        "insumo": "frascos_coletores",
+        "quantidade": 229,
+        "data_registro": "24/10/2025 16:21:50",
+        "tipo_registro": "adicionar"
+    },
+    "3547": {
+        "insumo": "prope",
+        "quantidade": 394,
+        "data_registro": "30/10/2025 22:45:16",
+        "tipo_registro": "remover"
+    },
+    "1125": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 330,
+        "data_registro": "25/10/2025 22:57:20",
+        "tipo_registro": "remover"
+    },
+    "9223": {
+        "insumo": "copos_coletores",
+        "quantidade": 317,
+        "data_registro": "28/10/2025 05:07:31",
+        "tipo_registro": "adicionar"
+    },
+    "8320": {
+        "insumo": "agulhas",
+        "quantidade": 373,
+        "data_registro": "28/10/2025 07:11:26",
+        "tipo_registro": "adicionar"
+    },
+    "3070": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 191,
+        "data_registro": "29/10/2025 03:33:25",
+        "tipo_registro": "adicionar"
+    },
+    "5563": {
+        "insumo": "frascos_coletores",
+        "quantidade": 354,
+        "data_registro": "25/10/2025 18:50:03",
+        "tipo_registro": "adicionar"
+    },
+    "3766": {
+        "insumo": "sabonete_liquido",
+        "quantidade": 336,
+        "data_registro": "24/10/2025 09:48:19",
+        "tipo_registro": "adicionar"
+    },
+    "2091": {
+        "insumo": "etiquetas_identificadoras",
+        "quantidade": 383,
+        "data_registro": "30/10/2025 21:32:01",
+        "tipo_registro": "remover"
+    },
+    "3812": {
+        "insumo": "frascos_estereis",
+        "quantidade": 269,
+        "data_registro": "26/10/2025 07:09:35",
+        "tipo_registro": "adicionar"
+    },
+    "4991": {
+        "insumo": "tubos_transporte",
+        "quantidade": 466,
+        "data_registro": "26/10/2025 19:24:57",
+        "tipo_registro": "adicionar"
+    },
+    "2223": {
+        "insumo": "copos_coletores",
+        "quantidade": 379,
+        "data_registro": "30/10/2025 06:42:20",
+        "tipo_registro": "remover"
+    },
+    "4102": {
+        "insumo": "frascos_estereis",
+        "quantidade": 109,
+        "data_registro": "25/10/2025 20:39:26",
+        "tipo_registro": "remover"
+    },
+    "5950": {
+        "insumo": "espatulas_descartaveis",
+        "quantidade": 196,
+        "data_registro": "24/10/2025 19:30:41",
+        "tipo_registro": "remover"
+    },
+    "7985": {
+        "insumo": "prope",
+        "quantidade": 348,
+        "data_registro": "30/10/2025 21:33:34",
+        "tipo_registro": "adicionar"
+    },
+    "8143": {
+        "insumo": "frascos_urinas_24h",
+        "quantidade": 423,
+        "data_registro": "26/10/2025 10:15:00",
+        "tipo_registro": "adicionar"
+    },
+    "5694": {
+        "insumo": "frascos_coletores",
+        "quantidade": 247,
+        "data_registro": "30/10/2025 18:05:40",
+        "tipo_registro": "remover"
+    },
+    "2191": {
+        "insumo": "algodao",
+        "quantidade": 357,
+        "data_registro": "25/10/2025 09:21:00",
+        "tipo_registro": "adicionar"
+    },
+    "1563": {
+        "insumo": "copos_coletores",
+        "quantidade": 167,
+        "data_registro": "25/10/2025 13:21:03",
+        "tipo_registro": "adicionar"
     }
 }
