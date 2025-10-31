@@ -26,6 +26,11 @@ implementando diversas estruturas de dados e algoritmos conforme exigido
 na Sprint 3, incluindo **filas**, **pilhas**, **busca sequencial e
 binária**, e **algoritmos de ordenação**.
 
+Nessa nova versão do algoritmo, ele também implementa funções que calculam 
+o gasto com o estoque e previsão na solicitação do estoque. Essas funções 
+tiveram o objetivo de acelerar o uso do algoritmo e adicionar funcionali-
+dades que são necessárias para a empresa DASA.
+
 ------------------------------------------------------------------------
 
 ## 🚀 Funcionalidades
@@ -41,7 +46,8 @@ binária**, e **algoritmos de ordenação**.
 -   **Relatórios e Alertas**: Notificações de estoque baixo e alto
 -   **Busca Eficiente**: Implementação de busca binária e sequencial
 -   **Ordenação**: Algoritmo **Merge Sort** para organização dos dados
-
+-   **Otimização com Programação Dinâmica**: Previsão de demanda e
+recomendações de reposição otimizadas.
 ------------------------------------------------------------------------
 
 ## 🛠️ Tecnologias Utilizadas
@@ -105,7 +111,7 @@ opções:
 -   Checar estoque completo
 -   Buscar produto no estoque (busca binária)
 -   Ver situação do estoque (alertas de baixo/alto estoque)
-
+-   Otimização com Programação Dinâmica: Recomendações inteligentes de reposição
 ### Funcionalidades do Funcionário
 
 -   Checar estoque
@@ -122,6 +128,7 @@ aleatórios de consumo a cada 5 segundos, incluindo:
 - Produtos selecionados aleatoriamente
 - Quantidades aleatórias entre 100-500 unidades
 - Tipo de registro (adicionar/remover) baseado no estoque atual
+- 
 
 ------------------------------------------------------------------------
 
@@ -202,6 +209,61 @@ def merge_sort(lista):
     return resultado
 ```
 
+### 4️⃣ Programação Dinâmica - Otimização de Estoque
+O sistema implementa três versões de Programação Dinâmica para otimizar as decisões de reposição de estoque:
+
+**Formulação do Problema**
+    - Estados: (dia, estoque_atual)
+    - Decisões: Quantidade a pedir a cada dia
+    - Função de Transição: novo_estoque = estoque_atual - demanda[dia] + pedido
+
+**Função Objetivo**: 
+    - Minimizar custo total (pedido + estoque + falta)
+    
+   Versão Recursiva (Top-Down)
+python
+
+    def dp_recursiva_estoque(dia, estoque_atual, demanda, custo_pedido=50.0, ...):
+        """Abordagem Top-Down pura - explora todas as possibilidades"""
+        # Caso base
+        if dia >= len(demanda):
+            return 0, 0
+    
+        # Calcular custos do dia atual
+        # Explorar decisões de pedido
+        # Chamada recursiva para próximo estado
+**Versão com Memorização**
+python
+
+    def dp_memorizacao_estoque(dia, estoque_atual, demanda, ...):
+        """Otimização com cache - evita recálculos desnecessários"""
+        global MEMO_DP
+        chave = (dia, estoque_atual)
+        if chave in MEMO_DP:
+            return MEMO_DP[chave]  
+        # Mesma lógica da recursiva, mas com cache
+        MEMO_DP[chave] = resultado
+        return resultado
+**Versão Iterativa (Bottom-Up)**
+python
+
+    def dp_iterativa_estoque(demanda, estoque_inicial=0, ...):
+        """Abordagem Bottom-Up - preenche tabela DP iterativamente"""
+        # Inicializar tabelas DP
+        dp = [[float('inf')] * (capacidade_max + 1) for _ in range(n_dias + 1)]
+        
+        # Preencher de trás para frente
+        for dia in range(n_dias - 1, -1, -1):
+            for estoque in range(capacidade_max + 1):
+                # Calcular melhor decisão para cada estado
+**Verificação de Consistência**
+python
+
+    def verificar_consistencia_dp(demanda):
+        """Garante que todas as versões produzem os mesmos resultados"""
+        # Testa as três versões e compara resultados
+        # Retorna True se custos forem consistentes
+###
 ------------------------------------------------------------------------
 
 ## 📁 Estrutura de Arquivos
@@ -213,6 +275,9 @@ sistema_estoque/
 ├── funcionarios.json       # Cadastro de funcionários
 ├── registros.json          # Histórico completo de movimentações
 ├── situacao_estoque.json   # Status de cada item (baixo/normal/alto)
+├── recomendacoes_reposicao.json   # Recomendações de reposição de cada item
+├── teste_programacao_dinamica.py   # Teste para ver se os métodos de otimização batem
+├── funcoes_dinaimcas_lucro.py   # Funções de programação dinâmica voltadas a maximizar o lucro
 ├── menu.py                 # Menu principal do sistema
 ├── funcoes_consumo.py      # Funções relacionadas ao consumo
 ├── funcoes_estoque.py      # Funções de gestão de estoque
@@ -259,6 +324,24 @@ O sistema oferece uma **interface de linha de comando completa e
 intuitiva**, com menus hierárquicos e feedback visual para todas as
 operações.
 
+## ✅ Requisitos Atendidos (Sprint 4)
+
+### - **Bottom-Up**:
+- **Onde**: `dp_iterativa_estoque()` em `funcoes_dinamicas_lucro.py`
+- **O que faz**: Calcula recomendações de reposição otimizadas construindo solução iterativamente dos menores para os maiores subproblemas
+
+### - **Top-Down com Memorização**:
+- **Onde**: `dp_memorizacao_estoque()` em `funcoes_dinamicas_lucro.py`
+- **O que faz**: Resolve o problema de estoque recursivamente com cache para evitar recálculos, partindo do problema principal
+
+###  - **Recursiva**:
+- **Onde**: `dp_recursiva_estoque()` em `funcoes_dinamicas_lucro.py`
+- **O que faz**: Implementação recursiva pura que explora todas as possibilidades de decisão de pedidos
+
+### **Verificação de Consistência**:
+- **Onde**: `verificar_consistencia_dp()` em `funcoes_dinamicas_lucro.py`
+- **O que faz**: Garante que todas as três versões de Programação Dinâmica produzam os mesmos resultados para validação
+    
 ------------------------------------------------------------------------
 
 ## 📈 Exemplos de Uso
@@ -286,41 +369,16 @@ operações.
 
 ------------------------------------------------------------------------
 
-## 📈 Melhorias no Sistema
+## 📈 Funções de teste programação dinâmica
 
-### Funções Otimizadas
-
--   Adição de funções recursivas
--   Funções com estado, decisão e transição
--   Funções recursivas voltadas a reposição otimizada
--   Funções de teste que garantam o mesmo resultado
-
-### Métodos para calcular gastos durante a semana
--   Adição de um json que mostra o valor de cada produto de estoque, dependendo do dia da semana
--   Gasto do estoque por dia da semana(Mudar funções que aleatoriamente fazem gastos durante o dia)
--   Json com cada dia da semana e seu gasto médio
--   Custo total por pedido(função do frete junto a quantidade de pedido)
--   Calcular custo do armazenamento
--   Calcular custo da falta de produtos necessários no dia
-
-### Atualização projeto
--   Atualização readme
--   Atualização estrutura do projeto
+### Otimizando reposição com Programação Dinâmica:
+1.   Acesse como Administrador
+2.   Selecione "Programação Dinâmica - Otimização de Estoque"
+3.   Escolha "Otimizar reposição de todos os insumos"
+4.   O sistema analisará o consumo histórico e recomendará:
+       Quantidades ideais para pedir
+       Custos mínimos projetados
+       Sequência de reposição para 7 dias
 
 
 
-Nas unidades de diagnóstico, o consumo diário de insumos (reagentes e descartáveis) não é registrado com precisão, 
-dificultando o controle de estoque e a previsão de reposição. DPara esta atividade será necessário organizar os dados de 
-forma eficiente com estruturas de dados e algoritmos clássicos. Simule dados de consumo diário de insumos e implemente 
-as seguintes soluções:
-• Fila e Pilha (30 pts)
-• Implementar uma fila para registrar o consumo diário (ordem cronológica).
-• Implementar uma pilha para simular consultas em ordem inversa (últimos consumos primeiro).
-• Estruturas de Busca (20 pts)
-• Implementar busca sequencial e binária para localizar um insumo específico no registro de consumo.
-• Ordenação (30 pts)
-• Implementar algoritmos de ordenação (Merge Sort e Quick Sort) para organizar os insumos por quantidade 
-consumida ou validade.
-• Relatório (20 pts)
-• Código no Github.
-• Explicar como cada estrutura/algoritmo foi usado no contexto do problema
