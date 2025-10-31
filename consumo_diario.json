@@ -91,79 +91,157 @@
             "data": "24/10/2025",
             "coleta_urina": {
                 "frascos_urinas_24h": 463,
-                "frascos_estereis": 327
+                "frascos_estereis": 470,
+                "copos_coletores": 168
             },
             "materiais_gerais": {
                 "luvas_descartaveis": 385
             },
             "coleta_fezes": {
-                "sacos_plasticos": 602,
+                "sacos_plasticos": 785,
                 "espatulas_descartaveis": 196
             }
         },
         {
             "data": "25/10/2025",
             "coleta_urina": {
-                "frascos_urinas_24h": 330,
-                "frascos_estereis": 109
+                "frascos_urinas_24h": 829,
+                "frascos_estereis": 653,
+                "copos_coletores": 168
+            },
+            "materiais_gerais": {
+                "toucas_descartaveis": 406,
+                "etiquetas_identificadoras": 171,
+                "papel_toalha": 416
+            },
+            "coleta_sangue": {
+                "gazes": 261,
+                "algodao": 476
+            },
+            "coleta_fezes": {
+                "sacos_plasticos": 416,
+                "frascos_coletores": 155
             }
         },
         {
             "data": "26/10/2025",
             "coleta_fezes": {
-                "espatulas_descartaveis": 625
+                "espatulas_descartaveis": 1103
             },
             "materiais_gerais": {
-                "prope": 408
+                "prope": 772,
+                "mascaras_cirurgicas": 205,
+                "sabonete_liquido": 606
             },
             "coleta_sangue": {
-                "algodao": 243
+                "algodao": 243,
+                "agulhas": 317
+            },
+            "coleta_urina": {
+                "copos_coletores": 633,
+                "frascos_urinas_24h": 453
             }
         },
         {
             "data": "27/10/2025",
             "coleta_fezes": {
-                "espatulas_descartaveis": 311
+                "espatulas_descartaveis": 813,
+                "frascos_coletores": 216
             },
             "coleta_urina": {
-                "frascos_estereis": 194,
-                "frascos_urinas_24h": 299
+                "frascos_estereis": 362,
+                "frascos_urinas_24h": 736
+            },
+            "materiais_gerais": {
+                "luvas_descartaveis": 500,
+                "papel_toalha": 204,
+                "sabonete_liquido": 237
+            },
+            "coleta_sangue": {
+                "seringas": 689
             }
         },
         {
             "data": "28/10/2025",
             "coleta_urina": {
-                "frascos_estereis": 293
+                "frascos_estereis": 293,
+                "frascos_urinas_24h": 402
             },
             "coleta_sangue": {
-                "tubos_transporte": 424
+                "tubos_transporte": 812,
+                "agulhas": 440
             },
             "materiais_gerais": {
-                "toucas_descartaveis": 391
+                "toucas_descartaveis": 640,
+                "sabonete_liquido": 205,
+                "mascaras_cirurgicas": 240,
+                "papel_toalha": 128
+            },
+            "coleta_fezes": {
+                "sacos_plasticos": 144,
+                "frascos_coletores": 690
             }
         },
         {
             "data": "29/10/2025",
             "coleta_sangue": {
                 "gazes": 362,
-                "seringas": 396
+                "seringas": 396,
+                "algodao": 947,
+                "tubos_transporte": 499
             },
             "materiais_gerais": {
                 "luvas_descartaveis": 343
+            },
+            "coleta_fezes": {
+                "espatulas_descartaveis": 433,
+                "frascos_coletores": 497,
+                "sacos_plasticos": 609
+            },
+            "coleta_urina": {
+                "copos_coletores": 625,
+                "frascos_urinas_24h": 369
             }
         },
         {
             "data": "30/10/2025",
             "coleta_fezes": {
-                "espatulas_descartaveis": 386,
+                "espatulas_descartaveis": 734,
                 "frascos_coletores": 247
             },
             "materiais_gerais": {
-                "prope": 394,
+                "prope": 855,
                 "etiquetas_identificadoras": 383
             },
             "coleta_urina": {
-                "copos_coletores": 379
+                "copos_coletores": 379,
+                "frascos_urinas_24h": 469,
+                "frascos_estereis": 449
+            },
+            "coleta_sangue": {
+                "tubos_transporte": 798,
+                "gazes": 508,
+                "agulhas": 348
+            }
+        },
+        {
+            "data": "31/10/2025",
+            "coleta_fezes": {
+                "espatulas_descartaveis": 197,
+                "frascos_coletores": 399
+            },
+            "coleta_urina": {
+                "frascos_urinas_24h": 589,
+                "copos_coletores": 456,
+                "frascos_estereis": 624
+            },
+            "coleta_sangue": {
+                "algodao": 285,
+                "seringas": 383
+            },
+            "materiais_gerais": {
+                "etiquetas_identificadoras": 354,
+                "prope": 464
             }
         }
     ]

@@ -1,0 +1,1290 @@
+{
+    "data_geracao": "31/10/2025 19:32:37",
+    "periodo_analisado": "Proximos 7 dias",
+    "recomendacoes_por_categoria": {
+        "coleta_sangue": {
+            "itens": {
+                "tubos_transporte": {
+                    "estoque_atual": 458,
+                    "demanda_prevista_7_dias": [
+                        607,
+                        607,
+                        607,
+                        607,
+                        607,
+                        607,
+                        607
+                    ],
+                    "custo_minimo_previsto": 1090.3,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 607,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 607,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 700,
+                        "total_pedidos_7_dias": 3700,
+                        "status": "URGENTE"
+                    }
+                },
+                "seringas": {
+                    "estoque_atual": 653,
+                    "demanda_prevista_7_dias": [
+                        393,
+                        393,
+                        393,
+                        393,
+                        393,
+                        393,
+                        393
+                    ],
+                    "custo_minimo_previsto": 326.7,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 393,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 393,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 393,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 393,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 393,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 393,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 393,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 600,
+                        "total_pedidos_7_dias": 2100,
+                        "status": "URGENTE"
+                    }
+                },
+                "agulhas": {
+                    "estoque_atual": 486,
+                    "demanda_prevista_7_dias": [
+                        373,
+                        373,
+                        373,
+                        373,
+                        373,
+                        373,
+                        373
+                    ],
+                    "custo_minimo_previsto": 305.8,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 373,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 373,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 373,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 373,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 373,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 373,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 373,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 700,
+                        "total_pedidos_7_dias": 2200,
+                        "status": "URGENTE"
+                    }
+                },
+                "gazes": {
+                    "estoque_atual": 1281,
+                    "demanda_prevista_7_dias": [
+                        398,
+                        398,
+                        398,
+                        398,
+                        398,
+                        398,
+                        398
+                    ],
+                    "custo_minimo_previsto": 315.6,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 398,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 398,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 398,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 398,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 398,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 398,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 398,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 1800,
+                        "status": "NORMAL"
+                    }
+                },
+                "algodao": {
+                    "estoque_atual": 714,
+                    "demanda_prevista_7_dias": [
+                        375,
+                        375,
+                        375,
+                        375,
+                        375,
+                        375,
+                        375
+                    ],
+                    "custo_minimo_previsto": 339.8,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 100,
+                            "demanda_prevista": 375,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 375,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 375,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 375,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 375,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 375,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 375,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 100,
+                        "total_pedidos_7_dias": 2000,
+                        "status": "URGENTE"
+                    }
+                }
+            },
+            "resumo_categoria": {
+                "total_itens": 5,
+                "total_reposicao_hoje": 2100,
+                "custo_total_previsto": 2378.2
+            }
+        },
+        "coleta_fezes": {
+            "itens": {
+                "sacos_plasticos": {
+                    "estoque_atual": 515,
+                    "demanda_prevista_7_dias": [
+                        446,
+                        446,
+                        446,
+                        446,
+                        446,
+                        446,
+                        446
+                    ],
+                    "custo_minimo_previsto": 321.7,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 446,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 900,
+                            "demanda_prevista": 446,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 446,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 900,
+                            "demanda_prevista": 446,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 446,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 446,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 446,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 400,
+                        "total_pedidos_7_dias": 2700,
+                        "status": "URGENTE"
+                    }
+                },
+                "espatulas_descartaveis": {
+                    "estoque_atual": 854,
+                    "demanda_prevista_7_dias": [
+                        548,
+                        548,
+                        548,
+                        548,
+                        548,
+                        548,
+                        548
+                    ],
+                    "custo_minimo_previsto": 353.4,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 300,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 548,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 548,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 300,
+                        "total_pedidos_7_dias": 3000,
+                        "status": "URGENTE"
+                    }
+                },
+                "frascos_coletores": {
+                    "estoque_atual": 551,
+                    "demanda_prevista_7_dias": [
+                        374,
+                        374,
+                        374,
+                        374,
+                        374,
+                        374,
+                        374
+                    ],
+                    "custo_minimo_previsto": 308.5,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 200,
+                            "demanda_prevista": 374,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 374,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 374,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 374,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 374,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 374,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 374,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 200,
+                        "total_pedidos_7_dias": 2100,
+                        "status": "URGENTE"
+                    }
+                }
+            },
+            "resumo_categoria": {
+                "total_itens": 3,
+                "total_reposicao_hoje": 900,
+                "custo_total_previsto": 983.5999999999999
+            }
+        },
+        "coleta_urina": {
+            "itens": {
+                "copos_coletores": {
+                    "estoque_atual": 566,
+                    "demanda_prevista_7_dias": [
+                        341,
+                        341,
+                        341,
+                        341,
+                        341,
+                        341,
+                        341
+                    ],
+                    "custo_minimo_previsto": 311.4,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 200,
+                            "demanda_prevista": 341,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 341,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 341,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 341,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 341,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 341,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 341,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 200,
+                        "total_pedidos_7_dias": 1900,
+                        "status": "URGENTE"
+                    }
+                },
+                "frascos_estereis": {
+                    "estoque_atual": 472,
+                    "demanda_prevista_7_dias": [
+                        438,
+                        438,
+                        438,
+                        438,
+                        438,
+                        438,
+                        438
+                    ],
+                    "custo_minimo_previsto": 314.0,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 438,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 438,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 438,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 900,
+                            "demanda_prevista": 438,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 438,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 438,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 438,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 500,
+                        "total_pedidos_7_dias": 2600,
+                        "status": "URGENTE"
+                    }
+                },
+                "frascos_urinas_24h": {
+                    "estoque_atual": 574,
+                    "demanda_prevista_7_dias": [
+                        519,
+                        519,
+                        519,
+                        519,
+                        519,
+                        519,
+                        519
+                    ],
+                    "custo_minimo_previsto": 338.6,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 519,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 519,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 500,
+                        "total_pedidos_7_dias": 3100,
+                        "status": "URGENTE"
+                    }
+                }
+            },
+            "resumo_categoria": {
+                "total_itens": 3,
+                "total_reposicao_hoje": 1200,
+                "custo_total_previsto": 964.0
+            }
+        },
+        "materiais_gerais": {
+            "itens": {
+                "prope": {
+                    "estoque_atual": 129,
+                    "demanda_prevista_7_dias": [
+                        596,
+                        596,
+                        596,
+                        596,
+                        596,
+                        596,
+                        596
+                    ],
+                    "custo_minimo_previsto": 2643.4,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 596,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 596,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 600,
+                        "total_pedidos_7_dias": 3600,
+                        "status": "URGENTE"
+                    }
+                },
+                "mascaras_cirurgicas": {
+                    "estoque_atual": 757,
+                    "demanda_prevista_7_dias": [
+                        196,
+                        196,
+                        196,
+                        196,
+                        196,
+                        196,
+                        196
+                    ],
+                    "custo_minimo_previsto": 281.1,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 196,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 196,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 300,
+                            "demanda_prevista": 196,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 196,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 196,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 196,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 196,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 700,
+                        "status": "NORMAL"
+                    }
+                },
+                "toucas_descartaveis": {
+                    "estoque_atual": 1032,
+                    "demanda_prevista_7_dias": [
+                        439,
+                        439,
+                        439,
+                        439,
+                        439,
+                        439,
+                        439
+                    ],
+                    "custo_minimo_previsto": 320.8,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 439,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 439,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 439,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 439,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 900,
+                            "demanda_prevista": 439,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 439,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 439,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 2100,
+                        "status": "NORMAL"
+                    }
+                },
+                "luvas_descartaveis": {
+                    "estoque_atual": 549,
+                    "demanda_prevista_7_dias": [
+                        409,
+                        409,
+                        409,
+                        409,
+                        409,
+                        409,
+                        409
+                    ],
+                    "custo_minimo_previsto": 309.1,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 409,
+                            "acao": "PEDIDO URGENTE"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 409,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 800,
+                            "demanda_prevista": 409,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 409,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 900,
+                            "demanda_prevista": 409,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 409,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 409,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 700,
+                        "total_pedidos_7_dias": 2400,
+                        "status": "URGENTE"
+                    }
+                },
+                "etiquetas_identificadoras": {
+                    "estoque_atual": 649,
+                    "demanda_prevista_7_dias": [
+                        302,
+                        302,
+                        302,
+                        302,
+                        302,
+                        302,
+                        302
+                    ],
+                    "custo_minimo_previsto": 268.7,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 302,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 300,
+                            "demanda_prevista": 302,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 302,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 302,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 600,
+                            "demanda_prevista": 302,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 302,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 302,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 1500,
+                        "status": "NORMAL"
+                    }
+                },
+                "papel_toalha": {
+                    "estoque_atual": 607,
+                    "demanda_prevista_7_dias": [
+                        249,
+                        249,
+                        249,
+                        249,
+                        249,
+                        249,
+                        249
+                    ],
+                    "custo_minimo_previsto": 257.7,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 249,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 249,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 249,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 500,
+                            "demanda_prevista": 249,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 249,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 300,
+                            "demanda_prevista": 249,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 249,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 1200,
+                        "status": "NORMAL"
+                    }
+                },
+                "sabonete_liquido": {
+                    "estoque_atual": 1291,
+                    "demanda_prevista_7_dias": [
+                        349,
+                        349,
+                        349,
+                        349,
+                        349,
+                        349,
+                        349
+                    ],
+                    "custo_minimo_previsto": 322.8,
+                    "recomendacoes_diarias": [
+                        {
+                            "dia": 1,
+                            "data": "31/10/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 349,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 2,
+                            "data": "01/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 349,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 3,
+                            "data": "02/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 349,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 4,
+                            "data": "03/11/2025",
+                            "pedido_recomendado": 700,
+                            "demanda_prevista": 349,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 5,
+                            "data": "04/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 349,
+                            "acao": "MANTER"
+                        },
+                        {
+                            "dia": 6,
+                            "data": "05/11/2025",
+                            "pedido_recomendado": 400,
+                            "demanda_prevista": 349,
+                            "acao": "PEDIDO"
+                        },
+                        {
+                            "dia": 7,
+                            "data": "06/11/2025",
+                            "pedido_recomendado": 0,
+                            "demanda_prevista": 349,
+                            "acao": "MANTER"
+                        }
+                    ],
+                    "resumo_item": {
+                        "reposicao_hoje": 0,
+                        "total_pedidos_7_dias": 1500,
+                        "status": "NORMAL"
+                    }
+                }
+            },
+            "resumo_categoria": {
+                "total_itens": 7,
+                "total_reposicao_hoje": 1300,
+                "custo_total_previsto": 4403.599999999999
+            }
+        }
+    },
+    "resumo_geral": {
+        "total_categorias": 4,
+        "total_itens_analisados": 18,
+        "reposicao_total_hoje": 5500,
+        "custo_total_previsto": 8729.4
+    }
+}

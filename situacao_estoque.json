@@ -1,15 +1,15 @@
 {
     "coleta_sangue": {
-        "agulhas": "ALTO",
+        "agulhas": "NORMAL",
         "gazes": "ALTO",
-        "seringas": "NORMAL",
+        "seringas": "ALTO",
         "algodao": "ALTO",
-        "tubos_transporte": "ALTO"
+        "tubos_transporte": "NORMAL"
     },
     "coleta_urina": {
-        "frascos_estereis": "ALTO",
-        "frascos_urinas_24h": "ALTO",
-        "copos_coletores": "ALTO"
+        "frascos_estereis": "NORMAL",
+        "frascos_urinas_24h": "NORMAL",
+        "copos_coletores": "NORMAL"
     },
     "coleta_fezes": {
         "frascos_coletores": "ALTO",
@@ -17,12 +17,12 @@
         "sacos_plasticos": "ALTO"
     },
     "materiais_gerais": {
-        "mascaras_cirurgicas": "BAIXO",
-        "prope": "ALTO",
+        "mascaras_cirurgicas": "ALTO",
+        "prope": "NORMAL",
         "toucas_descartaveis": "ALTO",
-        "sabonete_liquido": "NORMAL",
+        "sabonete_liquido": "ALTO",
         "papel_toalha": "ALTO",
-        "etiquetas_identificadoras": "NORMAL",
+        "etiquetas_identificadoras": "ALTO",
         "luvas_descartaveis": "ALTO"
     }
 }

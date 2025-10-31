@@ -2,7 +2,7 @@ from funcoes_dinamicas_lucro import menu_otimizacao_dp
 from funcoes_estoque import *
 from funcoes_funcionario import *
 from funcoes_consumo import *
-import menu_teste
+import teste_programacao_dinamica
 import time
 import threading
 

@@ -1,30 +1,30 @@
 {
     "insumos": {
         "coleta_sangue": {
-            "agulhas": 100,
-            "gazes": 808,
-            "seringas": 643,
-            "algodao": 826,
-            "tubos_transporte": 637
+            "agulhas": 486,
+            "gazes": 1281,
+            "seringas": 653,
+            "algodao": 266,
+            "tubos_transporte": 458
         },
         "coleta_urina": {
-            "frascos_estereis": 121,
-            "frascos_urinas_24h": 809,
-            "copos_coletores": 804
+            "frascos_estereis": 472,
+            "frascos_urinas_24h": 205,
+            "copos_coletores": 315
         },
         "coleta_fezes": {
-            "frascos_coletores": 362,
-            "espatulas_descartaveis": 582,
-            "sacos_plasticos": 691
+            "frascos_coletores": 103,
+            "espatulas_descartaveis": 854,
+            "sacos_plasticos": 515
         },
         "materiais_gerais": {
-            "mascaras_cirurgicas": 100,
-            "prope": 533,
-            "toucas_descartaveis": 900,
-            "sabonete_liquido": 100,
-            "papel_toalha": 204,
-            "etiquetas_identificadoras": 542,
-            "luvas_descartaveis": 900
+            "mascaras_cirurgicas": 757,
+            "prope": 129,
+            "toucas_descartaveis": 892,
+            "sabonete_liquido": 99,
+            "papel_toalha": 233,
+            "etiquetas_identificadoras": 419,
+            "luvas_descartaveis": 123
         }
     }
 }
