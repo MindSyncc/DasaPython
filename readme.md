@@ -309,3 +309,18 @@ operações.
 
 
 
+Nas unidades de diagnóstico, o consumo diário de insumos (reagentes e descartáveis) não é registrado com precisão, 
+dificultando o controle de estoque e a previsão de reposição. DPara esta atividade será necessário organizar os dados de 
+forma eficiente com estruturas de dados e algoritmos clássicos. Simule dados de consumo diário de insumos e implemente 
+as seguintes soluções:
+• Fila e Pilha (30 pts)
+• Implementar uma fila para registrar o consumo diário (ordem cronológica).
+• Implementar uma pilha para simular consultas em ordem inversa (últimos consumos primeiro).
+• Estruturas de Busca (20 pts)
+• Implementar busca sequencial e binária para localizar um insumo específico no registro de consumo.
+• Ordenação (30 pts)
+• Implementar algoritmos de ordenação (Merge Sort e Quick Sort) para organizar os insumos por quantidade 
+consumida ou validade.
+• Relatório (20 pts)
+• Código no Github.
+• Explicar como cada estrutura/algoritmo foi usado no contexto do problema
